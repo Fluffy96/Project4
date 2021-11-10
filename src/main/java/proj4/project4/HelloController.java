@@ -16,4 +16,25 @@ public class HelloController {
     protected void onHelloButtonClick() {
         cNum.setText("Welcome to JavaFX Application!");
     }
+    @FXML
+    protected void onDeluxeClick() {
+        cNum.setText("D");
+    }
+    @FXML
+    protected void onHawaiianClick() {
+        cNum.setText("H");
+    }
+    @FXML
+    protected void onPepperoniClick() {
+        cNum.setText("P");
+    }
+    @FXML
+    protected void onCurrentOrderClick() {
+        cNum.setText("P");
+    }
+    @FXML
+    protected void onStoreOrderClick() {
+        cNum.setText("P");
+    }
+
 }
