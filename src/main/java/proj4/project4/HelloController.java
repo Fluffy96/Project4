@@ -1,6 +1,7 @@
 package proj4.project4;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -18,15 +19,45 @@ public class HelloController {
     }
     @FXML
     protected void onDeluxeClick() {
-        cNum.setText("D");
+        try {
+            int result = Integer.parseInt(cNum.getText());
+        }
+        //Show the error message with a pop-up window.
+        catch (NumberFormatException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning!!");
+            alert.setHeaderText("No Phone Number Entered");
+            alert.setContentText("Please enter Phone Number.");
+            alert.showAndWait();
+        }
     }
     @FXML
     protected void onHawaiianClick() {
-        cNum.setText("H");
+        try {
+            int result = Integer.parseInt(cNum.getText());
+        }
+        //Show the error message with a pop-up window.
+        catch (NumberFormatException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning!!");
+            alert.setHeaderText("No Phone Number Entered");
+            alert.setContentText("Please enter Phone Number.");
+            alert.showAndWait();
+        }
     }
     @FXML
     protected void onPepperoniClick() {
-        cNum.setText("P");
+        try {
+            int result = Integer.parseInt(cNum.getText());
+        }
+        //Show the error message with a pop-up window.
+        catch (NumberFormatException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning!!");
+            alert.setHeaderText("No Phone Number Entered");
+            alert.setContentText("Please enter Phone Number.");
+            alert.showAndWait();
+        }
     }
     @FXML
     protected void onCurrentOrderClick() {
