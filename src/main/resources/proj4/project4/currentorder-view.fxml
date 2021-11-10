@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proj4.project4.HelloController">
+   <children>
+      <Label layoutX="270.0" layoutY="33.0" text="Pizza Order" />
+      <Label layoutX="146.0" layoutY="75.0" text="Customer Phone Number" />
+      <TextField layoutX="313.0" layoutY="71.0" />
+      <ListView layoutX="29.0" layoutY="110.0" prefHeight="195.0" prefWidth="532.0" />
+      <Label layoutX="52.0" layoutY="323.0" text="Subtotal $" />
+      <Label layoutX="52.0" layoutY="354.0" text="Order Total $" />
+      <Label layoutX="241.0" layoutY="323.0" text="Sales Tax $" />
+      <TextField layoutX="123.0" layoutY="319.0" prefHeight="25.0" prefWidth="100.0" />
+      <TextField layoutX="139.0" layoutY="350.0" prefHeight="25.0" prefWidth="100.0" />
+      <TextField layoutX="313.0" layoutY="319.0" prefHeight="25.0" prefWidth="100.0" />
+      <Button layoutX="455.0" layoutY="319.0" mnemonicParsing="false" text="Remove Pizza" />
+      <Button layoutX="461.0" layoutY="350.0" mnemonicParsing="false" text="Place Order" />
+   </children>
+</AnchorPane>

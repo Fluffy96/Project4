@@ -1,6 +1,8 @@
 package proj4.project4;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -29,6 +31,8 @@ public class HelloController {
             alert.setHeaderText("No Phone Number Entered");
             alert.setContentText("Please enter Phone Number.");
             alert.showAndWait();
+
+
         }
     }
     @FXML

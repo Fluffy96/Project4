@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proj4.project4.HelloController">
+   <children>
+      <Label layoutX="266.0" layoutY="40.0" text="Store Orders" />
+      <Label layoutX="43.0" layoutY="84.0" text="Customer Phone Number: " />
+      <MenuButton layoutX="194.0" layoutY="80.0" mnemonicParsing="false" text="MenuButton">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+      <Label layoutX="320.0" layoutY="84.0" text="Order Total $" />
+      <TextField layoutX="403.0" layoutY="80.0" />
+      <ListView layoutX="36.0" layoutY="119.0" prefHeight="215.0" prefWidth="518.0" />
+      <Button layoutX="194.0" layoutY="350.0" mnemonicParsing="false" text="Cancel Order" />
+      <Button layoutX="320.0" layoutY="350.0" mnemonicParsing="false" text="Export Store Orders" />
+   </children>
+</AnchorPane>
