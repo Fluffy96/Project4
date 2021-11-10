@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="proj4.project4.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="629.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proj4.project4.HelloController">
+   <children>
+      <TextField fx:id="cNum" layoutX="254.0" layoutY="55.0" />
+      <Label layoutX="39.0" layoutY="49.0" prefHeight="36.0" prefWidth="167.0" text="Customer Phone Number: " />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="39.0" layoutY="101.0" onMouseClicked="#onHelloButtonClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@delPizza.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>
