@@ -16,21 +16,17 @@ public abstract class Pizza {
             return this.price;
         }
     };
-    //public static final double SMALLPRICE = 0.00, MEDIUMPRICE = 2.00, LARGEPRICE = 4.00;
     public static final double PERTOPPING = 1.49;
+    public static final int NOTFOUND = -1;
+    public double pizzaPrice = 0;
 
-    public abstract double price();
+    public abstract double getprice();
 
-    /*private double addSizePrice(){
-        if(size == Size.SMALL){
-            return SMALLPRICE;
-        }
-        if(size == Size.MEDIUM){
-            return MEDIUMPRICE;
-        }
-        if(size == Size.LARGE){
-            return LARGEPRICE;
-        }
-        else return 0;
-    }*/
+    public abstract void setprice(double cost);
+
+    public abstract void addTopping(Topping top); //returns a string that says yes if it is able to return
+
+    public abstract void removeTopping(Topping top);
+
+    public abstract String[] getTopppings();
 }
