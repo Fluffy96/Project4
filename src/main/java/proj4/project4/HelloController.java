@@ -17,6 +17,7 @@ public class HelloController {
     private TextField cNum;
     @FXML
     private ListView deluxeAdditional, deluxeToppings, pepperoniAdditional, pepperoniToppings, hawaiianAdditional, hawaiianToppings;
+    private Customer customer = new Customer();
 
 
     @FXML

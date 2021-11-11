@@ -6,7 +6,10 @@ public class Customer {
     private ArrayList<ArrayList<Pizza>> pizzaList = new ArrayList<>();
     private ArrayList<Integer> phoneNumbers = new ArrayList<>();
 
-    public Customer(int pNum){
+    public Customer(){
+
+    }
+    public void newCustomer(int pNum){
         phoneNumbers.add(pNum);
     }
 
