@@ -19,8 +19,8 @@
             </items>
         </MenuButton>
         <Label layoutX="48.0" layoutY="183.0" text="Additional Toppings" />
-        <ListView layoutX="36.0" layoutY="218.0" prefHeight="200.0" prefWidth="150.0" />
-        <ListView layoutX="331.0" layoutY="218.0" prefHeight="200.0" prefWidth="150.0" />
+        <ListView fx:id="hawaiianAdditional" layoutX="36.0" layoutY="218.0" prefHeight="200.0" prefWidth="150.0" />
+        <ListView fx:id="hawaiianToppings" layoutX="331.0" layoutY="218.0" prefHeight="200.0" prefWidth="150.0" />
         <Button layoutX="224.0" layoutY="276.0" mnemonicParsing="false" text="Add &gt;&gt;&gt;" />
         <Button layoutX="214.0" layoutY="337.0" mnemonicParsing="false" text="&lt;&lt;&lt; Remove" />
         <Label layoutX="122.0" layoutY="466.0" text="Price $" />
