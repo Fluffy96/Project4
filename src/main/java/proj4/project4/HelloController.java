@@ -14,12 +14,22 @@ public class HelloController {
 
     private static final int PIZZABUILDWIDTH = 550, PIZZABUILDHEIGHT = 525, CURRENTORDERWIDTH = 600, CURRENTORDERHEIGHT = 400, STOREORDERWIDTH = 600, STOREORDERHEIGHT = 400;
     @FXML
-    private TextField cNum;
+    private Button addTopping, removeTopping, cancelStoreOrder, exportStoreOrders, removePizza, placeOrder;
     @FXML
-    private ListView deluxeAdditional, deluxeToppings, pepperoniAdditional, pepperoniToppings, hawaiianAdditional, hawaiianToppings;
+    private TextField cNum, storeOrderTotal, currentOrderPhoneNumber, subtotal, salestax, currentOrderTotal, deluxePrice;
+    //@FXML
+    //private ListView deluxeAdditional, deluxeToppings, pepperoniAdditional, pepperoniToppings, hawaiianAdditional, hawaiianToppings, storeOrderListView, currentOrderListView;
+    @FXML
+    private MenuButton isSizeSelect, storeOrderPhoneNumber;
+    @FXML
+    private ListView deluxeAdditional, deluxeToppings, pepperoniAdditional, pepperoniToppings, hawaiianAdditional, hawaiianToppings, storeOrderListView, currentOrderListView;
     private Customer customer = new Customer();
 
 
+    @FXML
+    protected void onHelloButtonClick() {
+        cNum.setText("Welcome to JavaFX Application!");
+    }
     @FXML
     protected void onDeluxeClick() {
         try {
@@ -127,6 +137,46 @@ public class HelloController {
     }
     @FXML
     protected void setDeluxeAdditional(){
+
+    }
+
+    @FXML
+    protected void onPlaceOrder(){
+
+    }
+
+    @FXML
+    protected void onRemovePizza(){
+
+    }
+
+    @FXML
+    protected void onCancelOrder(){
+
+    }
+
+    @FXML
+    protected void onExportStoreOrders(){
+
+    }
+
+    @FXML
+    protected void onDeluxeAdd(){
+
+    }
+
+    @FXML
+    protected void onDeluxeAddTopping(){
+
+    }
+
+    @FXML
+    protected void onDeluxeRemoveTopping(){
+
+    }
+
+    @FXML
+    protected void onDeluxeSelectSize(){
 
     }
 
