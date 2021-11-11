@@ -14,17 +14,11 @@ public class HelloController {
 
     private static final int PIZZABUILDWIDTH = 550, PIZZABUILDHEIGHT = 525, CURRENTORDERWIDTH = 600, CURRENTORDERHEIGHT = 400, STOREORDERWIDTH = 600, STOREORDERHEIGHT = 400;
     @FXML
-    private Button hell;
-    @FXML
     private TextField cNum;
     @FXML
     private ListView deluxeAdditional, deluxeToppings, pepperoniAdditional, pepperoniToppings, hawaiianAdditional, hawaiianToppings;
 
 
-    @FXML
-    protected void onHelloButtonClick() {
-        cNum.setText("Welcome to JavaFX Application!");
-    }
     @FXML
     protected void onDeluxeClick() {
         try {
@@ -129,6 +123,10 @@ public class HelloController {
         }catch(IOException e){
             e.printStackTrace();
         }
+    }
+    @FXML
+    protected void setDeluxeAdditional(){
+
     }
 
 }
