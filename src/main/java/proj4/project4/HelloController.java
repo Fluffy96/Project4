@@ -18,6 +18,7 @@ public class HelloController {
     @FXML
     private ListView deluxeAdditional, deluxeToppings, pepperoniAdditional, pepperoniToppings, hawaiianAdditional, hawaiianToppings;
     private Customer customer = new Customer();
+    private int phoneNumber;
 
 
     @FXML
