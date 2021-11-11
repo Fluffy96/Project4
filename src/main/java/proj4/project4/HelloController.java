@@ -24,6 +24,7 @@ public class HelloController {
     @FXML
     private ListView deluxeAdditional, deluxeToppings, pepperoniAdditional, pepperoniToppings, hawaiianAdditional, hawaiianToppings, storeOrderListView, currentOrderListView;
     private Customer customer = new Customer();
+    private int phoneNumber;
 
 
     @FXML
@@ -35,17 +36,25 @@ public class HelloController {
         try {
             int result = Integer.parseInt(cNum.getText());
             Parent root;
-            try{
-                root = FXMLLoader.load(Objects.requireNonNull(HelloController.class.getResource("deluxe-view.fxml")));
-                Stage stage = new Stage();
-                stage.setTitle("Customize Your Pizza");
-                stage.setScene(new Scene(root, PIZZABUILDWIDTH, PIZZABUILDHEIGHT));
-                stage.setResizable(false);
-                stage.show();
-
-            }catch(IOException e){
-                e.printStackTrace();
-            }
+            if(cNum.getText().length() == 10) {
+                try {
+                    root = FXMLLoader.load(Objects.requireNonNull(HelloController.class.getResource("deluxe-view.fxml")));
+                    Stage stage = new Stage();
+                    stage.setTitle("Customize Your Pizza");
+                    stage.setScene(new Scene(root, PIZZABUILDWIDTH, PIZZABUILDHEIGHT));
+                    stage.setResizable(false);
+                    stage.show();
+                    phoneNumber = result;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }else{
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning!!");
+                alert.setHeaderText("Phone Number Entered is less than 10 Digits");
+                alert.setContentText("Please enter valid Phone Number.");
+                alert.showAndWait();
+                }
         }
         //Show the error message with a pop-up window.
         catch (NumberFormatException e) {
@@ -62,15 +71,24 @@ public class HelloController {
         try {
             int result = Integer.parseInt(cNum.getText());
             Parent root;
-            try{
-                root = FXMLLoader.load(Objects.requireNonNull(HelloController.class.getResource("hawaiian-view.fxml")));
-                Stage stage = new Stage();
-                stage.setTitle("Customize Your Pizza");
-                stage.setScene(new Scene(root, PIZZABUILDWIDTH, PIZZABUILDHEIGHT));
-                stage.setResizable(false);
-                stage.show();
-            }catch(IOException e){
-                e.printStackTrace();
+            if(cNum.getText().length() == 10) {
+                try {
+                    root = FXMLLoader.load(Objects.requireNonNull(HelloController.class.getResource("hawaiian-view.fxml")));
+                    Stage stage = new Stage();
+                    stage.setTitle("Customize Your Pizza");
+                    stage.setScene(new Scene(root, PIZZABUILDWIDTH, PIZZABUILDHEIGHT));
+                    stage.setResizable(false);
+                    stage.show();
+                    phoneNumber = result;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }else{
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning!!");
+                alert.setHeaderText("Phone Number Entered is less than 10 Digits");
+                alert.setContentText("Please enter valid Phone Number.");
+                alert.showAndWait();
             }
         }
         //Show the error message with a pop-up window.
@@ -80,6 +98,7 @@ public class HelloController {
             alert.setHeaderText("No Phone Number Entered");
             alert.setContentText("Please enter Phone Number.");
             alert.showAndWait();
+
         }
     }
     @FXML
@@ -87,15 +106,24 @@ public class HelloController {
         try {
             int result = Integer.parseInt(cNum.getText());
             Parent root;
-            try{
-                root = FXMLLoader.load(Objects.requireNonNull(HelloController.class.getResource("pepperoni-view.fxml")));
-                Stage stage = new Stage();
-                stage.setTitle("Customize Your Pizza");
-                stage.setScene(new Scene(root, PIZZABUILDWIDTH, PIZZABUILDHEIGHT));
-                stage.setResizable(false);
-                stage.show();
-            }catch(IOException e){
-                e.printStackTrace();
+            if(cNum.getText().length() == 10) {
+                try {
+                    root = FXMLLoader.load(Objects.requireNonNull(HelloController.class.getResource("pepperoni-view.fxml")));
+                    Stage stage = new Stage();
+                    stage.setTitle("Customize Your Pizza");
+                    stage.setScene(new Scene(root, PIZZABUILDWIDTH, PIZZABUILDHEIGHT));
+                    stage.setResizable(false);
+                    stage.show();
+                    phoneNumber = result;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }else{
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning!!");
+                alert.setHeaderText("Phone Number Entered is less than 10 Digits");
+                alert.setContentText("Please enter valid Phone Number.");
+                alert.showAndWait();
             }
         }
         //Show the error message with a pop-up window.
@@ -105,6 +133,7 @@ public class HelloController {
             alert.setHeaderText("No Phone Number Entered");
             alert.setContentText("Please enter Phone Number.");
             alert.showAndWait();
+
         }
     }
     @FXML
