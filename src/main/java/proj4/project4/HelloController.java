@@ -36,6 +36,13 @@ public class HelloController {
                     stage.setResizable(false);
                     stage.show();
                     phoneNumber = result;
+                    customer.newCustomer(phoneNumber);
+                    FXMLLoader Load = new FXMLLoader();
+                    Load.setLocation(HelloController.class.getResource("deluxe-view.fxml"));
+                    Load.load();
+                    DeluxeController deluxe = Load.getController();
+                    deluxe.setCustomerAndNumber(phoneNumber, customer);
+                    System.out.println(phoneNumber);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

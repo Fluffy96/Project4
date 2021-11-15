@@ -16,12 +16,15 @@ public class DeluxeController {
     private ObservableList<String> items = FXCollections.observableArrayList ();
     @FXML
     private ListView<String> deluxeAdditional ;
-    @FXML
-    private TextField cNum;
-
+    private Customer customer = new Customer();
+    private int phoneNumber;
+    public void setCustomerAndNumber(int num, Customer cust){
+        phoneNumber = num;
+        customer = cust;
+    }
     @FXML
     private void setDeluxeAdditional(){
-        items.addAll("Single", "Double", "Suite", "Family App");
+        items.addAll("Single", "Double", "Suite", "Family App",String.valueOf(phoneNumber));
         deluxeAdditional.setItems(items);
 
 
