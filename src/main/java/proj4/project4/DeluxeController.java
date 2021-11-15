@@ -29,6 +29,8 @@ public class DeluxeController {
         phoneNumber = num;
         customer = cust;
         initialSmallPizza = new Deluxe("Small");
+        deluxeToppings.getItems().clear();
+        deluxeAdditional.getItems().clear();
         selectTopping.addAll(initialSmallPizza.getTopppings());
         deluxeToppings.setItems(selectTopping);
         additionalTopping.addAll(Topping.HAM.toString(),Topping.PINEAPPLE.toString());
@@ -42,6 +44,44 @@ public class DeluxeController {
 
 
 
+    }
+    @FXML
+    private void setSmall(){
+        deluxeToppings.getItems().clear();
+        deluxeAdditional.getItems().clear();
+        initialSmallPizza = new Deluxe("Small");
+        selectTopping.addAll(initialSmallPizza.getTopppings());
+        deluxeToppings.setItems(selectTopping);
+        additionalTopping.addAll(Topping.HAM.toString(),Topping.PINEAPPLE.toString());
+        deluxeAdditional.setItems(additionalTopping);
+        isSizeSelect.setText("Small");
+        deluxePrice.setText(String.valueOf(initialSmallPizza.getprice()));
+    }
+
+    @FXML
+    private void setMedium(){
+        deluxeToppings.getItems().clear();
+        deluxeAdditional.getItems().clear();
+        initialSmallPizza = new Deluxe("Medium");
+        selectTopping.addAll(initialSmallPizza.getTopppings());
+        deluxeToppings.setItems(selectTopping);
+        additionalTopping.addAll(Topping.HAM.toString(),Topping.PINEAPPLE.toString());
+        deluxeAdditional.setItems(additionalTopping);
+        isSizeSelect.setText("Medium");
+        deluxePrice.setText(String.valueOf(initialSmallPizza.getprice()));
+    }
+
+    @FXML
+    private void setLarge(){
+        deluxeToppings.getItems().clear();
+        deluxeAdditional.getItems().clear();
+        initialSmallPizza = new Deluxe("Large");
+        selectTopping.addAll(initialSmallPizza.getTopppings());
+        deluxeToppings.setItems(selectTopping);
+        additionalTopping.addAll(Topping.HAM.toString(),Topping.PINEAPPLE.toString());
+        deluxeAdditional.setItems(additionalTopping);
+        isSizeSelect.setText("Large");
+        deluxePrice.setText(String.valueOf(initialSmallPizza.getprice()));
     }
 
 }
