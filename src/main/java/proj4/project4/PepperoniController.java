@@ -21,14 +21,15 @@ public class PepperoniController {
     @FXML
     private MenuButton isSizeSelect;
     @FXML
-    private TextField pepPrice;
+    private TextField pepperoniPrice;
     private Customer customer = new Customer();
     private int phoneNumber;
     private Pepperoni initialSmallPizza;
     private DecimalFormat df = new DecimalFormat("#.##");
+    private final int MINIMUMTOPPINGS = 1;
 
     public void setCustomerAndNumber(int num, Customer cust){
-        pepPrice.setEditable(false);
+        pepperoniPrice.setEditable(false);
         phoneNumber = num;
         customer = cust;
         initialSmallPizza = new Pepperoni("Small");
@@ -39,7 +40,53 @@ public class PepperoniController {
         additionalTopping.addAll(Topping.MUSHROOM.toString(), Topping.CHICKEN.toString(), Topping.OLIVES.toString(), Topping.ONION.toString(), Topping.HAM.toString(),Topping.PINEAPPLE.toString());
         pepperoniAdditional.setItems(additionalTopping);
         isSizeSelect.setText("Small");
-        pepPrice.setText(String.valueOf(initialSmallPizza.getprice()));
+        pepperoniPrice.setText(String.valueOf(initialSmallPizza.getprice()));
+    }
+
+    @FXML
+    protected void onAdd(){
+        customer.addPiza(phoneNumber, initialSmallPizza);
+        //NEED to make scene close!!!
+    }
+    @FXML
+    protected void onSelectSize(){
+
+    }
+
+    @FXML
+    protected void onAddTopping(){
+        String selected = pepperoniAdditional.getSelectionModel().getSelectedItem();
+        if(pepperoniAdditional.getItems().size()!=0 && selected!=null) {
+            ObservableList<String> items = pepperoniToppings.getItems();
+            int len = items.size();
+            if (!items.contains(selected) && len <= 7) {
+                pepperoniToppings.getItems().add(selected);
+                initialSmallPizza.addTopping(Topping.toTopping(selected));
+                pepperoniPrice.setText(df.format(initialSmallPizza.getprice()));
+            }
+            items = pepperoniAdditional.getItems();
+            len = items.size();
+            if (items.contains(selected) && len > 0) {
+                pepperoniAdditional.getItems().remove(selected);
+            }
+        }
+    }
+    @FXML
+    protected void onRemoveTopping(){
+        String selected = pepperoniToppings.getSelectionModel().getSelectedItem();
+        if( selected!=null) {
+            ObservableList<String> items = pepperoniToppings.getItems();
+            int len = items.size();
+            if (items.contains(selected) && len > MINIMUMTOPPINGS) {
+                pepperoniToppings.getItems().remove(selected);
+                initialSmallPizza.removeTopping(Topping.toTopping(selected));
+                pepperoniPrice.setText(df.format(initialSmallPizza.getprice()));
+            }
+            items = pepperoniAdditional.getItems();
+            if (!items.contains(selected) && len > MINIMUMTOPPINGS) {
+                pepperoniAdditional.getItems().add(selected);
+            }
+        }
     }
 
     /**
@@ -55,7 +102,7 @@ public class PepperoniController {
         additionalTopping.addAll(Topping.MUSHROOM.toString(), Topping.CHICKEN.toString(), Topping.OLIVES.toString(), Topping.ONION.toString(),Topping.HAM.toString(),Topping.PINEAPPLE.toString());
         pepperoniAdditional.setItems(additionalTopping);
         isSizeSelect.setText("Small");
-        pepPrice.setText(df.format(initialSmallPizza.getprice()));
+        pepperoniPrice.setText(df.format(initialSmallPizza.getprice()));
     }
 
     /**
@@ -71,7 +118,7 @@ public class PepperoniController {
         additionalTopping.addAll(Topping.MUSHROOM.toString(), Topping.CHICKEN.toString(), Topping.OLIVES.toString(), Topping.ONION.toString(), Topping.HAM.toString(),Topping.PINEAPPLE.toString());
         pepperoniAdditional.setItems(additionalTopping);
         isSizeSelect.setText("Medium");
-        pepPrice.setText(df.format(initialSmallPizza.getprice()));
+        pepperoniPrice.setText(df.format(initialSmallPizza.getprice()));
     }
 
     /**
@@ -87,6 +134,6 @@ public class PepperoniController {
         additionalTopping.addAll(Topping.MUSHROOM.toString(), Topping.CHICKEN.toString(), Topping.OLIVES.toString(), Topping.ONION.toString(), Topping.HAM.toString(),Topping.PINEAPPLE.toString());
         pepperoniAdditional.setItems(additionalTopping);
         isSizeSelect.setText("Large");
-        pepPrice.setText(df.format(initialSmallPizza.getprice()));
+        pepperoniPrice.setText(df.format(initialSmallPizza.getprice()));
     }
 }
