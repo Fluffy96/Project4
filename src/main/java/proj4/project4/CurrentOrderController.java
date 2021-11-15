@@ -36,6 +36,9 @@ public class CurrentOrderController {
         }
         double tax = cost * TAX;
         double total = tax +cost;
+        subtotal.setText(df.format(cost));
+        currentOrderTotal.setText((df.format(total)));
+        salestax.setText(df.format(tax));
 
         currentOrderListView.setItems(currOrders);
 
