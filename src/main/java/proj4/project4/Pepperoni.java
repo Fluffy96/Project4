@@ -64,6 +64,7 @@ public class Pepperoni extends Pizza{
         for(Topping top: toppings){
             out += top.toString()+", ";
         }
+        out += size.toString()+", ";
         out += "$ ";
         out += df.format(pizzaPrice);
         return out;
