@@ -11,7 +11,7 @@
             <Image url="@delPizza.jpg" />
          </image>
       </ImageView>
-      <MenuButton fx:id="isSizeSelect" layoutX="334.0" layoutY="89.0" mnemonicParsing="false"  text="Pizza Size">
+      <MenuButton fx:id="isSizeSelect" layoutX="334.0" layoutY="89.0" mnemonicParsing="false" onAction="#onDeluxeSelectSize" text="Pizza Size">
         <items>
           <MenuItem mnemonicParsing="false" text="Small" />
           <MenuItem mnemonicParsing="false" text="Medium" />
@@ -21,11 +21,11 @@
       <Label layoutX="48.0" layoutY="183.0" text="Additional Toppings" />
       <ListView fx:id="deluxeAdditional" layoutX="36.0" layoutY="218.0" prefHeight="200.0" prefWidth="150.0" />
       <ListView fx:id="deluxeToppings" layoutX="331.0" layoutY="218.0" prefHeight="200.0" prefWidth="150.0" />
-      <Button fx:id="addTopping" layoutX="224.0" layoutY="276.0" mnemonicParsing="false"  text="Add &gt;&gt;&gt;" />
-      <Button fx:id="removeTopping" layoutX="214.0" layoutY="337.0" mnemonicParsing="false"  text="&lt;&lt;&lt; Remove" />
+      <Button fx:id="addTopping" layoutX="224.0" layoutY="276.0" mnemonicParsing="false" onAction="#onDeluxeAddTopping" text="Add &gt;&gt;&gt;" />
+      <Button fx:id="removeTopping" layoutX="214.0" layoutY="337.0" mnemonicParsing="false" onAction="#onDeluxeRemoveTopping" text="&lt;&lt;&lt; Remove" />
       <Label layoutX="122.0" layoutY="466.0" text="Price $" />
       <TextField fx:id="deluxePrice" layoutX="169.0" layoutY="462.0" />
-      <Button fx:id="deluxeAddToOrder" layoutX="331.0" layoutY="462.0" mnemonicParsing="false"  text="Add To Order" />
+      <Button fx:id="deluxeAddToOrder" layoutX="331.0" layoutY="462.0" mnemonicParsing="false" onAction="#onDeluxeAdd" text="Add To Order" />
       <Label layoutX="348.0" layoutY="183.0" text="Selected Toppings" />
       <Label layoutX="342.0" layoutY="45.0" text="Deluxe Pizza" />
    </children>

@@ -165,4 +165,84 @@ public class HelloController {
         deluxeAdditional.setItems(items);
     }
 
+    @FXML
+    protected void onPlaceOrder(){
+
+    }
+
+    @FXML
+    protected void onRemovePizza(){
+
+    }
+
+    @FXML
+    protected void onCancelOrder(){
+
+    }
+
+    @FXML
+    protected void onExportStoreOrders(){
+
+    }
+
+    @FXML
+    protected void onDeluxeAdd(){
+
+    }
+
+    @FXML
+    protected void onDeluxeAddTopping(){
+
+    }
+
+    @FXML
+    protected void onDeluxeRemoveTopping(){
+
+    }
+
+    @FXML
+    protected void onDeluxeSelectSize(){
+
+    }
+
+    @FXML
+    protected void onHawaiianAdd(){
+
+    }
+
+    @FXML
+    protected void onHawaiianAddTopping(){
+
+    }
+
+    @FXML
+    protected void onHawaiianRemoveTopping(){
+
+    }
+
+    @FXML
+    protected void onHawaiianSelectSize(){
+
+    }
+
+    @FXML
+    protected void onPepperoniAdd(){
+
+    }
+
+    @FXML
+    protected void onPepperoniAddTopping(){
+
+    }
+
+    @FXML
+    protected void onPepperoniRemoveTopping(){
+
+    }
+
+    @FXML
+    protected void onPepperoniSelectSize(){
+
+    }
+
 }
