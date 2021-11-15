@@ -57,7 +57,22 @@ public class DeluxeController {
 
     @FXML
     protected void onAdd(){
+        customer.addPiza(phoneNumber, initialSmallPizza);
+        //NEED to make scene close!!!
 
+
+        /*Parent root;
+        FXMLLoader Loader = new FXMLLoader();
+        Loader.setLocation(getClass().getResource("deluxe-view.fxml"));
+        Loader.load();
+        DeluxeController deluxe = Loader.getController();
+        deluxe.setCustomerAndNumber(phoneNumber, customer);
+        root = Loader.getRoot();
+        Stage stage = new Stage();
+        stage.setTitle("Customize Your Pizza");
+        stage.setScene(new Scene(root, PIZZABUILDWIDTH, PIZZABUILDHEIGHT));
+        stage.setResizable(false);
+        stage.show();*/
     }
     @FXML
     protected void onSelectSize(){
@@ -68,7 +83,6 @@ public class DeluxeController {
     protected void onAddTopping(){
         String selected = deluxeAdditional.getSelectionModel().getSelectedItem();
         if(deluxeAdditional.getItems().size()!=0 && selected!=null) {
-            Topping sTop = Topping.toTopping(selected); //need to add topping to pizza
             ObservableList<String> items = deluxeToppings.getItems();
             int len = items.size();
             if (!items.contains(selected) && len <= 7) {
@@ -86,16 +100,18 @@ public class DeluxeController {
     @FXML
     protected void onRemoveTopping(){
         String selected = deluxeToppings.getSelectionModel().getSelectedItem();
-        ObservableList<String> items = deluxeToppings.getItems();
-        int len = items.size();
-        if(items.contains(selected) && len > MINIMUMTOPPINGS){
-            deluxeToppings.getItems().remove(selected);
-            initialSmallPizza.removeTopping(Topping.toTopping(selected));
-            deluxePrice.setText(df.format(initialSmallPizza.getprice()));
-        }
-        items = deluxeAdditional.getItems();
-        if(!items.contains(selected) && len > MINIMUMTOPPINGS){
-            deluxeAdditional.getItems().add(selected);
+        if( selected!=null) {
+            ObservableList<String> items = deluxeToppings.getItems();
+            int len = items.size();
+            if (items.contains(selected) && len > MINIMUMTOPPINGS) {
+                deluxeToppings.getItems().remove(selected);
+                initialSmallPizza.removeTopping(Topping.toTopping(selected));
+                deluxePrice.setText(df.format(initialSmallPizza.getprice()));
+            }
+            items = deluxeAdditional.getItems();
+            if (!items.contains(selected) && len > MINIMUMTOPPINGS) {
+                deluxeAdditional.getItems().add(selected);
+            }
         }
     }
 

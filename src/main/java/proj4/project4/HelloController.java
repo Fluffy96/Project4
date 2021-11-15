@@ -43,7 +43,6 @@ public class HelloController {
                     stage.setScene(new Scene(root, PIZZABUILDWIDTH, PIZZABUILDHEIGHT));
                     stage.setResizable(false);
                     stage.show();
-
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -216,6 +215,10 @@ public class HelloController {
         items.addAll("Single", "Double", "Suite", "Family App");
         deluxeAdditional.setItems(items);
 
+    }
+
+    private void stageCloser(Stage s){
+        s.close();
     }
 
     @FXML

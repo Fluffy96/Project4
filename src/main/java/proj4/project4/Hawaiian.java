@@ -1,10 +1,12 @@
 package proj4.project4;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Hawaiian extends Pizza{
 
     public static final double BASEPRICE = 10.99;
+    public static final DecimalFormat df = new DecimalFormat("#.##");
 
     Hawaiian(String pSize){
         if(pSize.toLowerCase().equals( "small")){
@@ -48,6 +50,17 @@ public class Hawaiian extends Pizza{
             topList[i] = toppings.get(i).toString();
         }
         return topList;
+    }
+
+    @Override
+    public String toString(){
+        String out = "Hawaiian Pizza, ";
+        for(Topping top: toppings){
+            out += top.toString()+", ";
+        }
+        out += "$ ";
+        out += df.format(pizzaPrice);
+        return out;
     }
 
 }
