@@ -1,22 +1,27 @@
 package proj4.project4;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Deluxe extends Pizza{
 
     public static final double BASEPRICE = 12.99;
-    private double price;
+    public static final int MINTOPPINGS = 5;
 
     Deluxe(String pSize){
         if(pSize.toLowerCase().equals( "small")){
             size = Size.SMALL;
-            setprice(BASEPRICE+size.getPrice());
+            double amount = BASEPRICE+size.getPrice();
+            //if(toppings.size()>MINTOPPINGS){
+            //    amount += (toppings.size()-MINTOPPINGS)*PERTOPPING;
+            //}
+            setprice(amount);
         }else if(pSize.toLowerCase().equals("medium")){
             size = Size.MEDIUM;
-            setprice(BASEPRICE+size.getPrice());
+            double amount = BASEPRICE+size.getPrice();
         }else{
             size = Size.LARGE;
-            setprice(BASEPRICE+size.getPrice());
+            double amount = BASEPRICE+size.getPrice();
         }
         Topping[] otherList = new Topping[] {Topping.MUSHROOM, Topping.CHICKEN, Topping.OLIVES, Topping.ONION, Topping.PEPPERONI};
         toppings.addAll(Arrays.asList(otherList));
@@ -24,12 +29,17 @@ public class Deluxe extends Pizza{
     }
     @Override
     public double getprice() {
+        double amount = BASEPRICE+size.getPrice();
+        if(toppings.size()>MINTOPPINGS){
+            amount += (toppings.size()-MINTOPPINGS)*PERTOPPING;
+        }
+        setprice(amount);
         return pizzaPrice;
     }
 
     @Override
     public void setprice(double cost) {
-        pizzaPrice = pizzaPrice + cost;
+        pizzaPrice = cost;
     }
 
     @Override
@@ -50,5 +60,7 @@ public class Deluxe extends Pizza{
         }
         return topList;
     }
+
+
 
 }

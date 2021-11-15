@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 public class DeluxeController {
@@ -66,15 +67,20 @@ public class DeluxeController {
     @FXML
     protected void onAddTopping(){
         String selected = deluxeAdditional.getSelectionModel().getSelectedItem();
-        ObservableList<String> items = deluxeToppings.getItems();
-        int len = items.size();
-        if(!items.contains(selected) && len <= 7){
-            deluxeToppings.getItems().add(selected);
-        }
-        items = deluxeAdditional.getItems();
-        len = items.size();
-        if(items.contains(selected) && len > 0){
-            deluxeAdditional.getItems().remove(selected);
+        if(deluxeAdditional.getItems().size()!=0 && selected!=null) {
+            Topping sTop = Topping.toTopping(selected); //need to add topping to pizza
+            ObservableList<String> items = deluxeToppings.getItems();
+            int len = items.size();
+            if (!items.contains(selected) && len <= 7) {
+                deluxeToppings.getItems().add(selected);
+                initialSmallPizza.addTopping(Topping.toTopping(selected));
+                deluxePrice.setText(df.format(initialSmallPizza.getprice()));
+            }
+            items = deluxeAdditional.getItems();
+            len = items.size();
+            if (items.contains(selected) && len > 0) {
+                deluxeAdditional.getItems().remove(selected);
+            }
         }
     }
     @FXML
@@ -84,12 +90,15 @@ public class DeluxeController {
         int len = items.size();
         if(items.contains(selected) && len > MINIMUMTOPPINGS){
             deluxeToppings.getItems().remove(selected);
+            initialSmallPizza.removeTopping(Topping.toTopping(selected));
+            deluxePrice.setText(df.format(initialSmallPizza.getprice()));
         }
         items = deluxeAdditional.getItems();
         if(!items.contains(selected) && len > MINIMUMTOPPINGS){
             deluxeAdditional.getItems().add(selected);
         }
     }
+
 
 
     /**
