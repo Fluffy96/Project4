@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.util.List;
 import java.util.Objects;
 
 public class DeluxeController {
@@ -26,6 +27,7 @@ public class DeluxeController {
     private int phoneNumber;
     private Deluxe initialSmallPizza;
     private DecimalFormat df = new DecimalFormat("#.##");
+    private final int MINIMUMTOPPINGS = 5;
 
     public void setCustomerAndNumber(int num, Customer cust){
         deluxePrice.setEditable(false);
@@ -58,12 +60,36 @@ public class DeluxeController {
     }
     @FXML
     protected void onAddTopping(){
-
+        String selected = deluxeAdditional.getSelectionModel().getSelectedItem();
+        ObservableList<String> items = deluxeToppings.getItems();
+        int len = items.size();
+        if(!items.contains(selected) && len <= 7){
+            deluxeToppings.getItems().add(selected);
+        }
+        items = deluxeAdditional.getItems();
+        len = items.size();
+        if(items.contains(selected) && len > 0){
+            deluxeAdditional.getItems().remove(selected);
+        }
     }
     @FXML
     protected void onRemoveTopping(){
-
+        String selected = deluxeToppings.getSelectionModel().getSelectedItem();
+        ObservableList<String> items = deluxeToppings.getItems();
+        int len = items.size();
+        if(items.contains(selected) && len > MINIMUMTOPPINGS){
+            deluxeToppings.getItems().remove(selected);
+        }
+        items = deluxeAdditional.getItems();
+        if(!items.contains(selected) && len > MINIMUMTOPPINGS){
+            deluxeAdditional.getItems().add(selected);
+        }
     }
+    /*private boolean alreadyAddedCheck(ListView lv, String s){
+        boolean out = false;
+        ObservableList<String> items = lv.getItems();
+
+    }*/
     @FXML
     private void setSmall(){
         deluxeToppings.getItems().clear();
