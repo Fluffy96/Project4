@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Customer {
     private ArrayList<ArrayList<Pizza>> pizzaList = new ArrayList<>();
     private ArrayList<Integer> phoneNumbers = new ArrayList<>();
-
     public Customer(){
 
     }
@@ -30,8 +29,12 @@ public class Customer {
     }
     public ArrayList<Pizza> getPizza(int pNum){
         int index = phoneNumbers.indexOf(pNum);
-        ArrayList <Pizza> list = pizzaList.get(index);
-        return list;
+        try {
+            ArrayList<Pizza> list = pizzaList.get(index);
+            return list;
+        }catch(IndexOutOfBoundsException e){
+            return(null);
+        }
     }
     public void removePizza(int pNum,int indexOfPizza){
         ArrayList<Pizza> npiz = getPizza(pNum);
