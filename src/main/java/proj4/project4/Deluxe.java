@@ -20,6 +20,7 @@ public class Deluxe extends Pizza{
         }
         Topping[] otherList = new Topping[] {Topping.MUSHROOM, Topping.CHICKEN, Topping.OLIVES, Topping.ONION, Topping.PEPPERONI};
         toppings.addAll(Arrays.asList(otherList));
+
     }
     @Override
     public double getprice() {
