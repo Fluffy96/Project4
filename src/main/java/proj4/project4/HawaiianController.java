@@ -21,11 +21,12 @@ public class HawaiianController {
     @FXML
     private MenuButton isSizeSelect;
     @FXML
-    private TextField hawaiinPrice;
+    private TextField hawaiianPrice;
     private Customer customer = new Customer();
     private int phoneNumber;
     private Hawaiian initialSmallPizza;
     private DecimalFormat df = new DecimalFormat("#.##");
+    private final int MINIMUMTOPPINGS = 2;
 
     /**
      * Method allows us to pass phonenumber and customer object from hello controller; It sets the initial pizza at size small with hawaiin toppings
@@ -33,7 +34,7 @@ public class HawaiianController {
      * @param cust
      */
     public void setCustomerAndNumber(int num, Customer cust){
-        hawaiinPrice.setEditable(false);
+        hawaiianPrice.setEditable(false);
         phoneNumber = num;
         customer = cust;
         initialSmallPizza = new Hawaiian("Small");
@@ -44,12 +45,49 @@ public class HawaiianController {
         additionalTopping.addAll(Topping.MUSHROOM.toString(), Topping.CHICKEN.toString(), Topping.OLIVES.toString(), Topping.ONION.toString(), Topping.PEPPERONI.toString());
         hawaiianAdditional.setItems(additionalTopping);
         isSizeSelect.setText("Small");
-        hawaiinPrice.setText(String.valueOf(initialSmallPizza.getprice()));
+        hawaiianPrice.setText(String.valueOf(initialSmallPizza.getprice()));
     }
 
     @FXML
     protected void onHawaiianAdd(){
+        customer.addPiza(phoneNumber, initialSmallPizza);
+    }
 
+    @FXML
+    protected void onAddTopping(){
+        String selected = hawaiianAdditional.getSelectionModel().getSelectedItem();
+        if(hawaiianAdditional.getItems().size()!=0 && selected!=null) {
+            ObservableList<String> items = hawaiianToppings.getItems();
+            int len = items.size();
+            if (!items.contains(selected) && len <= 7) {
+                hawaiianToppings.getItems().add(selected);
+                initialSmallPizza.addTopping(Topping.toTopping(selected));
+                hawaiianPrice.setText(df.format(initialSmallPizza.getprice()));
+            }
+            items = hawaiianAdditional.getItems();
+            len = items.size();
+            if (items.contains(selected) && len > 0) {
+                hawaiianAdditional.getItems().remove(selected);
+            }
+        }
+    }
+
+    @FXML
+    protected void onRemoveTopping(){
+        String selected = hawaiianToppings.getSelectionModel().getSelectedItem();
+        if( selected!=null) {
+            ObservableList<String> items = hawaiianToppings.getItems();
+            int len = items.size();
+            if (items.contains(selected) && len > MINIMUMTOPPINGS) {
+                hawaiianToppings.getItems().remove(selected);
+                initialSmallPizza.removeTopping(Topping.toTopping(selected));
+                hawaiianPrice.setText(df.format(initialSmallPizza.getprice()));
+            }
+            items = hawaiianAdditional.getItems();
+            if (!items.contains(selected) && len > MINIMUMTOPPINGS) {
+                hawaiianAdditional.getItems().add(selected);
+            }
+        }
     }
 
     /**
@@ -65,7 +103,7 @@ public class HawaiianController {
         additionalTopping.addAll(Topping.MUSHROOM.toString(), Topping.CHICKEN.toString(), Topping.OLIVES.toString(), Topping.ONION.toString(), Topping.PEPPERONI.toString());
         hawaiianAdditional.setItems(additionalTopping);
         isSizeSelect.setText("Small");
-        hawaiinPrice.setText(df.format(initialSmallPizza.getprice()));
+        hawaiianPrice.setText(df.format(initialSmallPizza.getprice()));
     }
 
     /**
@@ -81,7 +119,7 @@ public class HawaiianController {
         additionalTopping.addAll(Topping.MUSHROOM.toString(), Topping.CHICKEN.toString(), Topping.OLIVES.toString(), Topping.ONION.toString(), Topping.PEPPERONI.toString());
         hawaiianAdditional.setItems(additionalTopping);
         isSizeSelect.setText("Medium");
-        hawaiinPrice.setText(df.format(initialSmallPizza.getprice()));
+        hawaiianPrice.setText(df.format(initialSmallPizza.getprice()));
     }
 
     /**
@@ -97,6 +135,6 @@ public class HawaiianController {
         additionalTopping.addAll(Topping.MUSHROOM.toString(), Topping.CHICKEN.toString(), Topping.OLIVES.toString(), Topping.ONION.toString(), Topping.PEPPERONI.toString());
         hawaiianAdditional.setItems(additionalTopping);
         isSizeSelect.setText("Large");
-        hawaiinPrice.setText(df.format(initialSmallPizza.getprice()));
+        hawaiianPrice.setText(df.format(initialSmallPizza.getprice()));
     }
 }

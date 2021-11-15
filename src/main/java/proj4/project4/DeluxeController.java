@@ -59,20 +59,6 @@ public class DeluxeController {
     protected void onAdd(){
         customer.addPiza(phoneNumber, initialSmallPizza);
         //NEED to make scene close!!!
-
-
-        /*Parent root;
-        FXMLLoader Loader = new FXMLLoader();
-        Loader.setLocation(getClass().getResource("deluxe-view.fxml"));
-        Loader.load();
-        DeluxeController deluxe = Loader.getController();
-        deluxe.setCustomerAndNumber(phoneNumber, customer);
-        root = Loader.getRoot();
-        Stage stage = new Stage();
-        stage.setTitle("Customize Your Pizza");
-        stage.setScene(new Scene(root, PIZZABUILDWIDTH, PIZZABUILDHEIGHT));
-        stage.setResizable(false);
-        stage.show();*/
     }
     @FXML
     protected void onSelectSize(){

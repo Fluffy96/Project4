@@ -1,13 +1,11 @@
 package proj4.project4;
 
-import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Locale;
 
 public class Pepperoni extends Pizza{
 
     public static final double BASEPRICE = 8.99;
-    public static final DecimalFormat df = new DecimalFormat("#.##");
 
     Pepperoni(String pSize){
         if(pSize.toLowerCase().equals( "small")){
@@ -50,17 +48,6 @@ public class Pepperoni extends Pizza{
             topList[i] = toppings.get(i).toString();
         }
         return topList;
-    }
-
-    @Override
-    public String toString(){
-        String out = "Hawaiian Pizza, ";
-        for(Topping top: toppings){
-            out += top.toString()+", ";
-        }
-        out += "$ ";
-        out += df.format(pizzaPrice);
-        return out;
     }
 
 }

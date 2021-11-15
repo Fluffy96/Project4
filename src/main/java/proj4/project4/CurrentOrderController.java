@@ -52,7 +52,7 @@ public class CurrentOrderController {
     @FXML
     protected void onRemovePizza(){
         String selected = currentOrderListView.getSelectionModel().getSelectedItem();
-
+        System.out.println("HEREREr");
 
     }
     @FXML
