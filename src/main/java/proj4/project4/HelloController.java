@@ -30,19 +30,33 @@ public class HelloController {
             Parent root;
             if(cNum.getText().length() == 10) {
                 try {
-                    phoneNumber = result;
-                    customer.newCustomer(phoneNumber);
-                    FXMLLoader Loader = new FXMLLoader();
-                    Loader.setLocation(getClass().getResource("deluxe-view.fxml"));
-                    Loader.load();
-                    DeluxeController deluxe = Loader.getController();
-                    deluxe.setCustomerAndNumber(phoneNumber, customer);
-                    root = Loader.getRoot();
-                    Stage stage = new Stage();
-                    stage.setTitle("Customize Your Pizza");
-                    stage.setScene(new Scene(root, PIZZABUILDWIDTH, PIZZABUILDHEIGHT));
-                    stage.setResizable(false);
-                    stage.show();
+                    if(phoneNumber != result) {
+                        phoneNumber = result;
+                        customer.newCustomer(phoneNumber);
+                        FXMLLoader Loader = new FXMLLoader();
+                        Loader.setLocation(getClass().getResource("deluxe-view.fxml"));
+                        Loader.load();
+                        DeluxeController deluxe = Loader.getController();
+                        deluxe.setCustomerAndNumber(phoneNumber, customer);
+                        root = Loader.getRoot();
+                        Stage stage = new Stage();
+                        stage.setTitle("Customize Your Pizza");
+                        stage.setScene(new Scene(root, PIZZABUILDWIDTH, PIZZABUILDHEIGHT));
+                        stage.setResizable(false);
+                        stage.show();
+                    }else{
+                        FXMLLoader Loader = new FXMLLoader();
+                        Loader.setLocation(getClass().getResource("deluxe-view.fxml"));
+                        Loader.load();
+                        DeluxeController deluxe = Loader.getController();
+                        deluxe.setCustomerAndNumber(phoneNumber, customer);
+                        root = Loader.getRoot();
+                        Stage stage = new Stage();
+                        stage.setTitle("Customize Your Pizza");
+                        stage.setScene(new Scene(root, PIZZABUILDWIDTH, PIZZABUILDHEIGHT));
+                        stage.setResizable(false);
+                        stage.show();
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -71,21 +85,33 @@ public class HelloController {
             Parent root;
             if(cNum.getText().length() == 10) {
                 try {
-                    phoneNumber = result;
-                    customer.newCustomer(phoneNumber);
-                    FXMLLoader Loader = new FXMLLoader();
-                    Loader.setLocation(getClass().getResource("hawaiian-view.fxml"));
-                    Loader.load();
-                    HawaiianController deluxe = Loader.getController();
-                    deluxe.setCustomerAndNumber(phoneNumber, customer);
-                    root = Loader.getRoot();
-                    Stage stage = new Stage();
-                    stage.setTitle("Customize Your Pizza");
-                    stage.setScene(new Scene(root, PIZZABUILDWIDTH, PIZZABUILDHEIGHT));
-                    stage.setResizable(false);
-                    stage.show();
-                    phoneNumber = result;
-                    setDeluxeAdditional();
+                    if(phoneNumber != result) {
+                        phoneNumber = result;
+                        customer.newCustomer(phoneNumber);
+                        FXMLLoader Loader = new FXMLLoader();
+                        Loader.setLocation(getClass().getResource("hawaiian-view.fxml"));
+                        Loader.load();
+                        HawaiianController deluxe = Loader.getController();
+                        deluxe.setCustomerAndNumber(phoneNumber, customer);
+                        root = Loader.getRoot();
+                        Stage stage = new Stage();
+                        stage.setTitle("Customize Your Pizza");
+                        stage.setScene(new Scene(root, PIZZABUILDWIDTH, PIZZABUILDHEIGHT));
+                        stage.setResizable(false);
+                        stage.show();
+                    }else{
+                        FXMLLoader Loader = new FXMLLoader();
+                        Loader.setLocation(getClass().getResource("hawaiian-view.fxml"));
+                        Loader.load();
+                        HawaiianController deluxe = Loader.getController();
+                        deluxe.setCustomerAndNumber(phoneNumber, customer);
+                        root = Loader.getRoot();
+                        Stage stage = new Stage();
+                        stage.setTitle("Customize Your Pizza");
+                        stage.setScene(new Scene(root, PIZZABUILDWIDTH, PIZZABUILDHEIGHT));
+                        stage.setResizable(false);
+                        stage.show();
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -114,21 +140,33 @@ public class HelloController {
             Parent root;
             if(cNum.getText().length() == 10) {
                 try {
-                    phoneNumber = result;
-                    customer.newCustomer(phoneNumber);
-                    FXMLLoader Loader = new FXMLLoader();
-                    Loader.setLocation(getClass().getResource("pepperoni-view.fxml"));
-                    Loader.load();
-                    PepperoniController deluxe = Loader.getController();
-                    deluxe.setCustomerAndNumber(phoneNumber, customer);
-                    root = Loader.getRoot();
-                    Stage stage = new Stage();
-                    stage.setTitle("Customize Your Pizza");
-                    stage.setScene(new Scene(root, PIZZABUILDWIDTH, PIZZABUILDHEIGHT));
-                    stage.setResizable(false);
-                    stage.show();
-                    phoneNumber = result;
-                    setDeluxeAdditional();
+                    if(phoneNumber != result) {
+                        phoneNumber = result;
+                        customer.newCustomer(phoneNumber);
+                        FXMLLoader Loader = new FXMLLoader();
+                        Loader.setLocation(getClass().getResource("pepperoni-view.fxml"));
+                        Loader.load();
+                        PepperoniController deluxe = Loader.getController();
+                        deluxe.setCustomerAndNumber(phoneNumber, customer);
+                        root = Loader.getRoot();
+                        Stage stage = new Stage();
+                        stage.setTitle("Customize Your Pizza");
+                        stage.setScene(new Scene(root, PIZZABUILDWIDTH, PIZZABUILDHEIGHT));
+                        stage.setResizable(false);
+                        stage.show();
+                    }else{
+                        FXMLLoader Loader = new FXMLLoader();
+                        Loader.setLocation(getClass().getResource("pepperoni-view.fxml"));
+                        Loader.load();
+                        PepperoniController deluxe = Loader.getController();
+                        deluxe.setCustomerAndNumber(phoneNumber, customer);
+                        root = Loader.getRoot();
+                        Stage stage = new Stage();
+                        stage.setTitle("Customize Your Pizza");
+                        stage.setScene(new Scene(root, PIZZABUILDWIDTH, PIZZABUILDHEIGHT));
+                        stage.setResizable(false);
+                        stage.show();
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -151,36 +189,49 @@ public class HelloController {
         }
     }
     @FXML
-    protected void onCurrentOrderClick() { try {
-        int result = Integer.parseInt(cNum.getText());
-        Parent root;
-        if(cNum.getText().length() == 10) {
-            try {
-                phoneNumber = result;
-                customer.newCustomer(phoneNumber);
-                FXMLLoader Loader = new FXMLLoader();
-                Loader.setLocation(getClass().getResource("currentorder-view.fxml"));
-                Loader.load();
-                CurrentOrderController deluxe = Loader.getController();
-                deluxe.setCustomerAndNumber(phoneNumber, customer);
-                root = Loader.getRoot();
-                Stage stage = new Stage();
-                stage.setTitle("Current Order");
-                stage.setScene(new Scene(root, CURRENTORDERWIDTH, CURRENTORDERHEIGHT));
-                stage.setResizable(false);
-                stage.show();
-                phoneNumber = result;
-                setDeluxeAdditional();
-            } catch (IOException e) {
-                e.printStackTrace();
+    protected void onCurrentOrderClick() {
+        try {
+            int result = Integer.parseInt(cNum.getText());
+            Parent root;
+            if(cNum.getText().length() == 10) {
+                try {
+                    if(phoneNumber != result) {
+                        phoneNumber = result;
+                        customer.newCustomer(phoneNumber);
+                        FXMLLoader Loader = new FXMLLoader();
+                        Loader.setLocation(getClass().getResource("currentorder-view.fxml"));
+                        Loader.load();
+                        CurrentOrderController deluxe = Loader.getController();
+                        deluxe.setCustomerAndNumber(phoneNumber, customer);
+                        root = Loader.getRoot();
+                        Stage stage = new Stage();
+                        stage.setTitle("Current Order");
+                        stage.setScene(new Scene(root, CURRENTORDERWIDTH, CURRENTORDERHEIGHT));
+                        stage.setResizable(false);
+                        stage.show();
+                    }else{
+                        FXMLLoader Loader = new FXMLLoader();
+                        Loader.setLocation(getClass().getResource("currentorder-view.fxml"));
+                        Loader.load();
+                        CurrentOrderController deluxe = Loader.getController();
+                        deluxe.setCustomerAndNumber(phoneNumber, customer);
+                        root = Loader.getRoot();
+                        Stage stage = new Stage();
+                        stage.setTitle("Current Order");
+                        stage.setScene(new Scene(root, CURRENTORDERWIDTH, CURRENTORDERHEIGHT));
+                        stage.setResizable(false);
+                        stage.show();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }else{
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning!!");
+                alert.setHeaderText("Phone Number Entered is less than 10 Digits");
+                alert.setContentText("Please enter valid Phone Number.");
+                alert.showAndWait();
             }
-        }else{
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning!!");
-            alert.setHeaderText("Phone Number Entered is less than 10 Digits");
-            alert.setContentText("Please enter valid Phone Number.");
-            alert.showAndWait();
-        }
     }
     //Show the error message with a pop-up window.
     catch (NumberFormatException e) {
@@ -196,9 +247,14 @@ public class HelloController {
     protected void onStoreOrderClick() {
         Parent root;
         try{
-            root = FXMLLoader.load(Objects.requireNonNull(HelloController.class.getResource("storeorders-view.fxml")));
+            FXMLLoader Loader = new FXMLLoader();
+            Loader.setLocation(getClass().getResource("storeorders-view.fxml"));
+            Loader.load();
+            StoreOrdersController deluxe = Loader.getController();
+            deluxe.setCustomerAndNumber(customer);
+            root = Loader.getRoot();
             Stage stage = new Stage();
-            stage.setTitle("Customize Your Pizza");
+            stage.setTitle("Current Order");
             stage.setScene(new Scene(root, STOREORDERWIDTH, STOREORDERHEIGHT));
             stage.setResizable(false);
             stage.show();
@@ -206,99 +262,5 @@ public class HelloController {
             e.printStackTrace();
         }
     }
-    @FXML
-    protected void setDeluxeAdditional(){
-
-        ObservableList<String> items = FXCollections.observableArrayList ();
-        deluxeAdditional = new ListView<String>(items);
-        //String[] items = {"a", "b", "c", "d"};
-        items.addAll("Single", "Double", "Suite", "Family App");
-        deluxeAdditional.setItems(items);
 
     }
-
-    private void stageCloser(Stage s){
-        s.close();
-    }
-
-    @FXML
-    protected void onPlaceOrder(){
-
-    }
-
-    @FXML
-    protected void onRemovePizza(){
-
-    }
-
-    @FXML
-    protected void onCancelOrder(){
-
-    }
-
-    @FXML
-    protected void onExportStoreOrders(){
-
-    }
-
-    @FXML
-    protected void onDeluxeAdd(){
-
-    }
-
-    @FXML
-    protected void onDeluxeAddTopping(){
-
-    }
-
-    @FXML
-    protected void onDeluxeRemoveTopping(){
-
-    }
-
-    @FXML
-    protected void onDeluxeSelectSize(){
-
-    }
-
-    @FXML
-    protected void onHawaiianAdd(){
-
-    }
-
-    @FXML
-    protected void onHawaiianAddTopping(){
-
-    }
-
-    @FXML
-    protected void onHawaiianRemoveTopping(){
-
-    }
-
-    @FXML
-    protected void onHawaiianSelectSize(){
-
-    }
-
-    @FXML
-    protected void onPepperoniAdd(){
-
-    }
-
-    @FXML
-    protected void onPepperoniAddTopping(){
-
-    }
-
-    @FXML
-    protected void onPepperoniRemoveTopping(){
-
-    }
-
-    @FXML
-    protected void onPepperoniSelectSize(){
-
-    }
-
-}

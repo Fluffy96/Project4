@@ -57,4 +57,19 @@ public class Customer {
 
     }
 
+    public ArrayList<Integer> phoneNumbers(){
+        ArrayList orderNumbers = new ArrayList();
+        for( int i = 0; i < orderPlace.size(); i++){
+            if(orderPlace.get(i)){
+                orderNumbers.add(phoneNumbers.get(i));
+            }
+        }
+        if(orderNumbers.size() > NO_LENGTH){
+            return orderNumbers;
+        }else{
+            return null;
+        }
+    }
+
+
 }
