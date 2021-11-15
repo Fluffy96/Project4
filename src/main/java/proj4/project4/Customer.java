@@ -15,12 +15,26 @@ public class Customer {
 
     public void addPiza(int pNum, Pizza piz){
         int index = phoneNumbers.indexOf(pNum);
-        pizzaList.get(index).add(piz);
+        if(index > pizzaList.size()-1){
+            ArrayList<Pizza> npiz = new ArrayList<>();
+            npiz.add(piz);
+            pizzaList.add(npiz);
+        }else{
+            pizzaList.remove(index);
+            ArrayList<Pizza> npiz = getPizza(pNum);
+            npiz.add(piz);
+            pizzaList.add(index,npiz);
+
+        }
+
     }
     public ArrayList<Pizza> getPizza(int pNum){
         int index = phoneNumbers.indexOf(pNum);
         ArrayList <Pizza> list = pizzaList.get(index);
         return list;
+    }
+    public void removePizza(int pNum,Pizza piz){
+
     }
 
 

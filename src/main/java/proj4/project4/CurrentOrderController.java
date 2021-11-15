@@ -21,6 +21,11 @@ public class CurrentOrderController {
     private ListView<String> currentOrderListView;
     private static final double TAX = .06625;
 
+    /**
+     * Method allows hello controler to pass customer data and current orders phone number
+     * @param num
+     * @param cust
+     */
     public void setCustomerAndNumber(int num, Customer cust){
         currentOrderPhoneNumber.setEditable(false);
         subtotal.setEditable(false);
@@ -46,6 +51,8 @@ public class CurrentOrderController {
 
     @FXML
     protected void onRemovePizza(){
+        String selected = currentOrderListView.getSelectionModel().getSelectedItem();
+
 
     }
     @FXML
