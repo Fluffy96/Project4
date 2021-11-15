@@ -4,7 +4,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="550.0" prefWidth="525.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proj4.project4.HelloController">
+<AnchorPane prefHeight="550.0" prefWidth="525.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proj4.project4.HawaiianController">
     <children>
         <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="36.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -25,7 +25,7 @@
         <Button layoutX="214.0" layoutY="337.0" mnemonicParsing="false" text="&lt;&lt;&lt; Remove" />
         <Label layoutX="122.0" layoutY="466.0" text="Price $" />
         <TextField layoutX="169.0" layoutY="462.0" />
-        <Button layoutX="331.0" layoutY="462.0" mnemonicParsing="false" text="Add To Order" />
+        <Button layoutX="331.0" layoutY="462.0" mnemonicParsing="false" onAction="#onHawaiianAdd" text="Add To Order" />
         <Label layoutX="348.0" layoutY="183.0" text="Selected Toppings" />
         <Label layoutX="337.0" layoutY="45.0" text="Hawaiian Pizza" />
     </children>

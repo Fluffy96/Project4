@@ -159,10 +159,10 @@ public class HelloController {
     }
     @FXML
     protected void setDeluxeAdditional(){
-        ListView<String> deluxeAdditional = new ListView<String>();
-        ObservableList<String> items = FXCollections.observableArrayList (
-                "Single", "Double", "Suite", "Family App");
-        deluxeAdditional.setItems(items);
+
+        ObservableList<String> items = FXCollections.observableArrayList ("Single", "Double", "Suite", "Family App");
+        deluxeAdditional = new ListView<String>(items);
+        //deluxeAdditional.setItems(items);
     }
 
     @FXML
