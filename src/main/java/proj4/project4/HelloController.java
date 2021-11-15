@@ -29,19 +29,21 @@ public class HelloController {
             Parent root;
             if(cNum.getText().length() == 10) {
                 try {
-                    root = FXMLLoader.load(Objects.requireNonNull(HelloController.class.getResource("deluxe-view.fxml")));
+                    //root = FXMLLoader.load(Objects.requireNonNull(HelloController.class.getResource("deluxe-view.fxml")));
+                    phoneNumber = result;
+                    customer.newCustomer(phoneNumber);
+                    FXMLLoader Loader = new FXMLLoader();
+                    Loader.setLocation(getClass().getResource("deluxe-view.fxml"));
+                    Loader.load();
+                    DeluxeController deluxe = Loader.getController();
+                    deluxe.setCustomerAndNumber(phoneNumber, customer);
+                    root = Loader.getRoot();
                     Stage stage = new Stage();
                     stage.setTitle("Customize Your Pizza");
                     stage.setScene(new Scene(root, PIZZABUILDWIDTH, PIZZABUILDHEIGHT));
                     stage.setResizable(false);
                     stage.show();
-                    phoneNumber = result;
-                    customer.newCustomer(phoneNumber);
-                    FXMLLoader Load = new FXMLLoader();
-                    Load.setLocation(HelloController.class.getResource("deluxe-view.fxml"));
-                    Load.load();
-                    DeluxeController deluxe = Load.getController();
-                    deluxe.setCustomerAndNumber(phoneNumber, customer);
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
