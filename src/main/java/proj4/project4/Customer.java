@@ -17,5 +17,11 @@ public class Customer {
         int index = phoneNumbers.indexOf(pNum);
         pizzaList.get(index).add(piz);
     }
+    public ArrayList<Pizza> getPizza(int pNum){
+        int index = phoneNumbers.indexOf(pNum);
+        ArrayList <Pizza> list = pizzaList.get(index);
+        return list;
+    }
+
 
 }

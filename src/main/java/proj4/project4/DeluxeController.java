@@ -25,6 +25,7 @@ public class DeluxeController {
     private int phoneNumber;
     private Deluxe initialSmallPizza;
     private DecimalFormat df = new DecimalFormat("#.##");
+    private final int MINIMUMTOPPINGS = 5;
 
     /**
      * Method allows us to pass phonenumber and customer object from hello controller; It sets the initial pizza at size small with deluxe toppings
@@ -60,14 +61,35 @@ public class DeluxeController {
     protected void onSelectSize(){
 
     }
+
     @FXML
     protected void onAddTopping(){
-
+        String selected = deluxeAdditional.getSelectionModel().getSelectedItem();
+        ObservableList<String> items = deluxeToppings.getItems();
+        int len = items.size();
+        if(!items.contains(selected) && len <= 7){
+            deluxeToppings.getItems().add(selected);
+        }
+        items = deluxeAdditional.getItems();
+        len = items.size();
+        if(items.contains(selected) && len > 0){
+            deluxeAdditional.getItems().remove(selected);
+        }
     }
     @FXML
     protected void onRemoveTopping(){
-
+        String selected = deluxeToppings.getSelectionModel().getSelectedItem();
+        ObservableList<String> items = deluxeToppings.getItems();
+        int len = items.size();
+        if(items.contains(selected) && len > MINIMUMTOPPINGS){
+            deluxeToppings.getItems().remove(selected);
+        }
+        items = deluxeAdditional.getItems();
+        if(!items.contains(selected) && len > MINIMUMTOPPINGS){
+            deluxeAdditional.getItems().add(selected);
+        }
     }
+
 
     /**
      * Method makes it so when the small pizza size is chosen price and pizza update to that of original deluxe pizza
