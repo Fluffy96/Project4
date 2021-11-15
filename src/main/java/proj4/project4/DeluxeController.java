@@ -62,6 +62,7 @@ public class DeluxeController {
     protected void onSelectSize(){
 
     }
+
     @FXML
     protected void onAddTopping(){
         String selected = deluxeAdditional.getSelectionModel().getSelectedItem();
@@ -89,6 +90,7 @@ public class DeluxeController {
             deluxeAdditional.getItems().add(selected);
         }
     }
+
 
     /**
      * Method makes it so when the small pizza size is chosen price and pizza update to that of original deluxe pizza
