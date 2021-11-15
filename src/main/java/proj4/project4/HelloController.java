@@ -42,7 +42,6 @@ public class HelloController {
                     Load.load();
                     DeluxeController deluxe = Load.getController();
                     deluxe.setCustomerAndNumber(phoneNumber, customer);
-                    System.out.println(phoneNumber);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
