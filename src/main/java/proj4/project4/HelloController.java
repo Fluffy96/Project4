@@ -165,8 +165,8 @@ public class HelloController {
                 deluxe.setCustomerAndNumber(phoneNumber, customer);
                 root = Loader.getRoot();
                 Stage stage = new Stage();
-                stage.setTitle("Customize Your Pizza");
-                stage.setScene(new Scene(root, PIZZABUILDWIDTH, PIZZABUILDHEIGHT));
+                stage.setTitle("Current Order");
+                stage.setScene(new Scene(root, CURRENTORDERWIDTH, CURRENTORDERHEIGHT));
                 stage.setResizable(false);
                 stage.show();
                 phoneNumber = result;

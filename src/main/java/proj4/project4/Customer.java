@@ -33,10 +33,10 @@ public class Customer {
         ArrayList <Pizza> list = pizzaList.get(index);
         return list;
     }
-    public void removePizza(int pNum,Pizza piz){
+    public void removePizza(int pNum,int indexOfPizza){
         ArrayList<Pizza> npiz = getPizza(pNum);
         int index = phoneNumbers.indexOf(pNum);
-        npiz.remove(piz);
+        npiz.remove(indexOfPizza);
         pizzaList.remove(index);
         if(npiz.size() != 0){
             pizzaList.add(index,npiz);

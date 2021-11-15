@@ -3,6 +3,7 @@ package proj4.project4;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
@@ -19,6 +20,8 @@ public class CurrentOrderController {
     private ObservableList<String> currOrders = FXCollections.observableArrayList ();
     @FXML
     private ListView<String> currentOrderListView;
+    @FXML
+    private Button removePizza;
     private static final double TAX = .06625;
 
     /**
@@ -28,6 +31,7 @@ public class CurrentOrderController {
      */
     public void setCustomerAndNumber(int num, Customer cust){
         currentOrderPhoneNumber.setEditable(false);
+        currentOrderPhoneNumber.setText(Integer.toString(num));
         subtotal.setEditable(false);
         currentOrderTotal.setEditable(false);
         salestax.setEditable(false);
@@ -44,14 +48,14 @@ public class CurrentOrderController {
         subtotal.setText(df.format(cost));
         currentOrderTotal.setText((df.format(total)));
         salestax.setText(df.format(tax));
-
         currentOrderListView.setItems(currOrders);
+
 
     }
 
     @FXML
     protected void onRemovePizza(){
-        String selected = currentOrderListView.getSelectionModel().getSelectedItem();
+        salestax.setText("HI 45678");
         System.out.println("HEREREr");
 
     }
