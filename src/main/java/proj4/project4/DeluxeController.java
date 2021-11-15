@@ -26,6 +26,7 @@ public class DeluxeController {
     private Deluxe initialSmallPizza;
 
     public void setCustomerAndNumber(int num, Customer cust){
+        deluxePrice.setEditable(false);
         phoneNumber = num;
         customer = cust;
         initialSmallPizza = new Deluxe("Small");
