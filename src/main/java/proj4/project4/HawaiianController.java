@@ -14,4 +14,9 @@ import java.util.Objects;
 
 public class HawaiianController {
 
+    @FXML
+    protected void onHawaiianAdd(){
+
+    }
+
 }

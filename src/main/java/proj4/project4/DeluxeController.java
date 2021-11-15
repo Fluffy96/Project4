@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.Objects;
 
 public class DeluxeController {
@@ -24,6 +25,7 @@ public class DeluxeController {
     private Customer customer = new Customer();
     private int phoneNumber;
     private Deluxe initialSmallPizza;
+    private DecimalFormat df = new DecimalFormat("#.##");
 
     public void setCustomerAndNumber(int num, Customer cust){
         phoneNumber = num;
@@ -43,6 +45,22 @@ public class DeluxeController {
     private void setDeluxeAdditional(){
 
 
+    }
+
+    @FXML
+    protected void onAdd(){
+
+    }
+    @FXML
+    protected void onSelectSize(){
+
+    }
+    @FXML
+    protected void onAddTopping(){
+
+    }
+    @FXML
+    protected void onRemoveTopping(){
 
     }
     @FXML
@@ -55,7 +73,7 @@ public class DeluxeController {
         additionalTopping.addAll(Topping.HAM.toString(),Topping.PINEAPPLE.toString());
         deluxeAdditional.setItems(additionalTopping);
         isSizeSelect.setText("Small");
-        deluxePrice.setText(String.valueOf(initialSmallPizza.getprice()));
+        deluxePrice.setText(df.format(initialSmallPizza.getprice()));
     }
 
     @FXML
@@ -68,7 +86,7 @@ public class DeluxeController {
         additionalTopping.addAll(Topping.HAM.toString(),Topping.PINEAPPLE.toString());
         deluxeAdditional.setItems(additionalTopping);
         isSizeSelect.setText("Medium");
-        deluxePrice.setText(String.valueOf(initialSmallPizza.getprice()));
+        deluxePrice.setText(df.format(initialSmallPizza.getprice()));
     }
 
     @FXML
@@ -81,7 +99,7 @@ public class DeluxeController {
         additionalTopping.addAll(Topping.HAM.toString(),Topping.PINEAPPLE.toString());
         deluxeAdditional.setItems(additionalTopping);
         isSizeSelect.setText("Large");
-        deluxePrice.setText(String.valueOf(initialSmallPizza.getprice()));
+        deluxePrice.setText(df.format(initialSmallPizza.getprice()));
     }
 
 }

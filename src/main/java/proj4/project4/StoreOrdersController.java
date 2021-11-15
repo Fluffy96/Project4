@@ -13,4 +13,14 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class StoreOrdersController {
+
+    @FXML
+    protected void onCancelOrder(){
+
+    }
+    @FXML
+    protected void onExportStoreOrders(){
+
+    }
+
 }

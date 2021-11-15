@@ -22,6 +22,7 @@ public class HelloController {
     private Customer customer = new Customer();
     private int phoneNumber;
 
+
     @FXML
     protected void onDeluxeClick() {
         try {
@@ -79,6 +80,7 @@ public class HelloController {
                     stage.setResizable(false);
                     stage.show();
                     phoneNumber = result;
+                    setDeluxeAdditional();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -162,6 +164,16 @@ public class HelloController {
         }catch(IOException e){
             e.printStackTrace();
         }
+    }
+    @FXML
+    protected void setDeluxeAdditional(){
+
+        ObservableList<String> items = FXCollections.observableArrayList ();
+        deluxeAdditional = new ListView<String>(items);
+        //String[] items = {"a", "b", "c", "d"};
+        items.addAll("Single", "Double", "Suite", "Family App");
+        deluxeAdditional.setItems(items);
+
     }
 
     @FXML
