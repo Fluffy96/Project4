@@ -85,7 +85,7 @@ public class CurrentOrderController {
 
     @FXML
     protected void onPlaceOrder(){
-
+        customer.addOrder(phoneNumber);
     }
 
 }
