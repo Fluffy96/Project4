@@ -13,5 +13,18 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class DeluxeController {
+    private ObservableList<String> items = FXCollections.observableArrayList ();
+    @FXML
+    private ListView<String> deluxeAdditional ;
+    @FXML
+    private TextField cNum;
+
+    @FXML
+    private void setDeluxeAdditional(){
+        items.addAll("Single", "Double", "Suite", "Family App");
+        deluxeAdditional.setItems(items);
+
+
+    }
 
 }
