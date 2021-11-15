@@ -1,5 +1,7 @@
 package proj4.project4;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,23 +16,13 @@ public class HelloController {
 
     private static final int PIZZABUILDWIDTH = 550, PIZZABUILDHEIGHT = 525, CURRENTORDERWIDTH = 600, CURRENTORDERHEIGHT = 400, STOREORDERWIDTH = 600, STOREORDERHEIGHT = 400;
     @FXML
-    private Button addTopping, removeTopping, cancelStoreOrder, exportStoreOrders, removePizza, placeOrder;
+    private TextField cNum;
     @FXML
-    private TextField cNum, storeOrderTotal, currentOrderPhoneNumber, subtotal, salestax, currentOrderTotal, deluxePrice;
-    //@FXML
-    //private ListView deluxeAdditional, deluxeToppings, pepperoniAdditional, pepperoniToppings, hawaiianAdditional, hawaiianToppings, storeOrderListView, currentOrderListView;
-    @FXML
-    private MenuButton isSizeSelect, storeOrderPhoneNumber;
-    @FXML
-    private ListView deluxeAdditional, deluxeToppings, pepperoniAdditional, pepperoniToppings, hawaiianAdditional, hawaiianToppings, storeOrderListView, currentOrderListView;
+    private ListView<String> deluxeAdditional, deluxeToppings, pepperoniAdditional, pepperoniToppings, hawaiianAdditional, hawaiianToppings;
     private Customer customer = new Customer();
     private int phoneNumber;
 
 
-    @FXML
-    protected void onHelloButtonClick() {
-        cNum.setText("Welcome to JavaFX Application!");
-    }
     @FXML
     protected void onDeluxeClick() {
         try {
@@ -45,6 +37,7 @@ public class HelloController {
                     stage.setResizable(false);
                     stage.show();
                     phoneNumber = result;
+                    setDeluxeAdditional();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -166,47 +159,10 @@ public class HelloController {
     }
     @FXML
     protected void setDeluxeAdditional(){
-
-    }
-
-    @FXML
-    protected void onPlaceOrder(){
-
-    }
-
-    @FXML
-    protected void onRemovePizza(){
-
-    }
-
-    @FXML
-    protected void onCancelOrder(){
-
-    }
-
-    @FXML
-    protected void onExportStoreOrders(){
-
-    }
-
-    @FXML
-    protected void onDeluxeAdd(){
-
-    }
-
-    @FXML
-    protected void onDeluxeAddTopping(){
-
-    }
-
-    @FXML
-    protected void onDeluxeRemoveTopping(){
-
-    }
-
-    @FXML
-    protected void onDeluxeSelectSize(){
-
+        ListView<String> deluxeAdditional = new ListView<String>();
+        ObservableList<String> items = FXCollections.observableArrayList (
+                "Single", "Double", "Suite", "Family App");
+        deluxeAdditional.setItems(items);
     }
 
 }
