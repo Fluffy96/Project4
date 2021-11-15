@@ -28,6 +28,7 @@ public class DeluxeController {
     private DecimalFormat df = new DecimalFormat("#.##");
 
     public void setCustomerAndNumber(int num, Customer cust){
+        deluxePrice.setEditable(false);
         phoneNumber = num;
         customer = cust;
         initialSmallPizza = new Deluxe("Small");
