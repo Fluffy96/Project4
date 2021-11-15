@@ -30,7 +30,6 @@ public class HelloController {
             Parent root;
             if(cNum.getText().length() == 10) {
                 try {
-                    //root = FXMLLoader.load(Objects.requireNonNull(HelloController.class.getResource("deluxe-view.fxml")));
                     phoneNumber = result;
                     customer.newCustomer(phoneNumber);
                     FXMLLoader Loader = new FXMLLoader();
@@ -73,7 +72,14 @@ public class HelloController {
             Parent root;
             if(cNum.getText().length() == 10) {
                 try {
-                    root = FXMLLoader.load(Objects.requireNonNull(HelloController.class.getResource("hawaiian-view.fxml")));
+                    phoneNumber = result;
+                    customer.newCustomer(phoneNumber);
+                    FXMLLoader Loader = new FXMLLoader();
+                    Loader.setLocation(getClass().getResource("hawaiian-view.fxml"));
+                    Loader.load();
+                    HawaiianController deluxe = Loader.getController();
+                    deluxe.setCustomerAndNumber(phoneNumber, customer);
+                    root = Loader.getRoot();
                     Stage stage = new Stage();
                     stage.setTitle("Customize Your Pizza");
                     stage.setScene(new Scene(root, PIZZABUILDWIDTH, PIZZABUILDHEIGHT));
@@ -109,13 +115,21 @@ public class HelloController {
             Parent root;
             if(cNum.getText().length() == 10) {
                 try {
-                    root = FXMLLoader.load(Objects.requireNonNull(HelloController.class.getResource("pepperoni-view.fxml")));
+                    phoneNumber = result;
+                    customer.newCustomer(phoneNumber);
+                    FXMLLoader Loader = new FXMLLoader();
+                    Loader.setLocation(getClass().getResource("pepperoni-view.fxml"));
+                    Loader.load();
+                    PepperoniController deluxe = Loader.getController();
+                    deluxe.setCustomerAndNumber(phoneNumber, customer);
+                    root = Loader.getRoot();
                     Stage stage = new Stage();
                     stage.setTitle("Customize Your Pizza");
                     stage.setScene(new Scene(root, PIZZABUILDWIDTH, PIZZABUILDHEIGHT));
                     stage.setResizable(false);
                     stage.show();
                     phoneNumber = result;
+                    setDeluxeAdditional();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

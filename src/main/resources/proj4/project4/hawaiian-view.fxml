@@ -13,9 +13,9 @@
         </ImageView>
         <MenuButton fx:id="isSizeSelect" layoutX="334.0" layoutY="89.0" mnemonicParsing="false" text="Pizza Size">
             <items>
-                <MenuItem mnemonicParsing="false" text="Small" />
-                <MenuItem mnemonicParsing="false" text="Medium" />
-                <MenuItem mnemonicParsing="false" text="Large" />
+                <MenuItem mnemonicParsing="false" onAction="#setSmall" text="Small" />
+                <MenuItem mnemonicParsing="false" onAction="#setMedium" text="Medium" />
+                <MenuItem mnemonicParsing="false" onAction="#setLarge" text="Large" />
             </items>
         </MenuButton>
         <Label layoutX="48.0" layoutY="183.0" text="Additional Toppings" />
@@ -24,7 +24,7 @@
         <Button layoutX="224.0" layoutY="276.0" mnemonicParsing="false" text="Add &gt;&gt;&gt;" />
         <Button layoutX="214.0" layoutY="337.0" mnemonicParsing="false" text="&lt;&lt;&lt; Remove" />
         <Label layoutX="122.0" layoutY="466.0" text="Price $" />
-        <TextField layoutX="169.0" layoutY="462.0" />
+        <TextField fx:id="hawaiinPrice" layoutX="169.0" layoutY="462.0" />
         <Button layoutX="331.0" layoutY="462.0" mnemonicParsing="false" onAction="#onHawaiianAdd" text="Add To Order" />
         <Label layoutX="348.0" layoutY="183.0" text="Selected Toppings" />
         <Label layoutX="337.0" layoutY="45.0" text="Hawaiian Pizza" />

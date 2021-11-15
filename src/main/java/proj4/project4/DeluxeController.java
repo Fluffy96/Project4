@@ -8,7 +8,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.Objects;
@@ -27,6 +26,11 @@ public class DeluxeController {
     private Deluxe initialSmallPizza;
     private DecimalFormat df = new DecimalFormat("#.##");
 
+    /**
+     * Method allows us to pass phonenumber and customer object from hello controller; It sets the initial pizza at size small with deluxe toppings
+     * @param num
+     * @param cust
+     */
     public void setCustomerAndNumber(int num, Customer cust){
         deluxePrice.setEditable(false);
         phoneNumber = num;
@@ -64,6 +68,10 @@ public class DeluxeController {
     protected void onRemoveTopping(){
 
     }
+
+    /**
+     * Method makes it so when the small pizza size is chosen price and pizza update to that of original deluxe pizza
+     */
     @FXML
     private void setSmall(){
         deluxeToppings.getItems().clear();
@@ -77,6 +85,9 @@ public class DeluxeController {
         deluxePrice.setText(df.format(initialSmallPizza.getprice()));
     }
 
+    /**
+     * Method makes it so when the medium pizza size is chosen price and pizza update to that of original deluxe pizza
+     */
     @FXML
     private void setMedium(){
         deluxeToppings.getItems().clear();
@@ -90,6 +101,9 @@ public class DeluxeController {
         deluxePrice.setText(df.format(initialSmallPizza.getprice()));
     }
 
+    /**
+     * Method makes it so when the large pizza size is chosen price and pizza update to that of original deluxe pizza
+     */
     @FXML
     private void setLarge(){
         deluxeToppings.getItems().clear();
