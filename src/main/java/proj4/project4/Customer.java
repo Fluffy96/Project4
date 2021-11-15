@@ -20,8 +20,8 @@ public class Customer {
             npiz.add(piz);
             pizzaList.add(npiz);
         }else{
-            pizzaList.remove(index);
             ArrayList<Pizza> npiz = getPizza(pNum);
+            pizzaList.remove(index);
             npiz.add(piz);
             pizzaList.add(index,npiz);
 
