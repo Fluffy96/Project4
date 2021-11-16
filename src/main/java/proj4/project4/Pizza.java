@@ -32,4 +32,9 @@ public abstract class Pizza {
     public abstract ArrayList<Topping> unusedToppings();
 
     public abstract String[] getTopppings();
+
+    public abstract int getMinTop();
+
+    public abstract void changeSize(String s);
+
 }
