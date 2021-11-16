@@ -17,14 +17,11 @@ import java.util.Objects;
 public class StoreOrdersController {
     @FXML
     private MenuButton storeOrderPhoneNumber;
-    /**
-     * Method allows hello controler to pass customer data
-     * @param cust
-     */
-    public void setCustomerAndNumber(Customer cust){
-        ArrayList<Integer> numbers = cust.phoneNumbers();
+
+    public void setCustomerAndNumber(StoreOrders store){
+        ArrayList<String> numbers = store.getPhoneNumberList();
         for(int i =0; i<numbers.size();i++){
-            MenuItem m1 = new MenuItem(String.valueOf(numbers.get(i)));
+            MenuItem m1 = new MenuItem((numbers.get(i)));
             storeOrderPhoneNumber.getItems().add(m1);
         }
     }

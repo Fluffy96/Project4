@@ -8,15 +8,14 @@ public class Orders {
     private ArrayList<Pizza> pizzaList = new ArrayList<>();
     private double price;
     private DecimalFormat df = new DecimalFormat("#.##");
-
     public Orders(String phoneNu){
         phoneNum = phoneNu;
     }
     public Orders(){
     }
-    public void addPizza(Pizza piz, double price){
+    public void addPizza(Pizza piz, double pric){
         pizzaList.add(piz);
-        price = price;
+        price = price + pric;
     }
     public  ArrayList<Pizza> getPizzaList(){
         if(pizzaList.size() != -1){

@@ -25,9 +25,11 @@ public class CurrentOrderController {
     private static final double TAX = .06625;
     private static final int NOT_FOUND = -1;
     private static final double NO_COST = 0.0;
+    private StoreOrders storeOrders = new StoreOrders();
 
 
-    public void setCustomerAndNumber(Orders orde){
+    public void setCustomerAndNumber(Orders orde, StoreOrders stOrd){
+        storeOrders = stOrd;
         order = orde;
         currentOrderPhoneNumber.setEditable(false);
         currentOrderPhoneNumber.setText(order.getPhoneNum());
@@ -80,7 +82,9 @@ public class CurrentOrderController {
 
     @FXML
     protected void onPlaceOrder(){
-
+        storeOrders.addOrders(order);
+        storeOrders.addTP(Double.parseDouble(currentOrderTotal.getText()));
+        storeOrders.addPhoneNumbers(phoneNumber);
     }
 
 }

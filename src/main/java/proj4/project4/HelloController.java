@@ -14,61 +14,62 @@ import java.util.Objects;
 
 public class HelloController {
 
-    private static final int PIZZABUILDWIDTH = 550, PIZZABUILDHEIGHT = 525, CURRENTORDERWIDTH = 600, CURRENTORDERHEIGHT = 400, STOREORDERWIDTH = 600, STOREORDERHEIGHT = 400, NUMBERLENGTH =10;
+    private static final int PIZZABUILDWIDTH = 550, PIZZABUILDHEIGHT = 525, CURRENTORDERWIDTH = 600, CURRENTORDERHEIGHT = 400, STOREORDERWIDTH = 600, STOREORDERHEIGHT = 400, NUMBERLENGTH = 10;
     @FXML
     private TextField cNum;
     @FXML
     private ListView<String> deluxeAdditional, deluxeToppings, pepperoniAdditional, pepperoniToppings, hawaiianAdditional, hawaiianToppings;
     private Orders order = new Orders();
-    private String phoneNumber="";
+    private StoreOrders storeOrder = new StoreOrders();
+    private String phoneNumber = "";
 
 
     @FXML
     protected void onDeluxeClick() {
-            String result = cNum.getText();
-            Parent root;
-            if(result.matches("[0-9]+")){
-                if(result.length() == NUMBERLENGTH){
-                    if(phoneNumber == ""){
+        String result = cNum.getText();
+        Parent root;
+        if (result.matches("[0-9]+")) {
+            if (result.length() == NUMBERLENGTH) {
+                if (phoneNumber == "") {
+                    order = new Orders(result);
+                    phoneNumber = result;
+                    System.out.println(result + "   " + order.getPhoneNum() + "    " + phoneNumber);
+                } else {
+                    if (!result.equals(order.getPhoneNum())) {
                         order = new Orders(result);
                         phoneNumber = result;
-                        System.out.println(result+"   "+order.getPhoneNum()+"    "+phoneNumber);
-                    }else{
-                        if(!result.equals(order.getPhoneNum())){
-                            order= new Orders(result);
-                            phoneNumber = result;
-                        }
                     }
-                    FXMLLoader Loader = new FXMLLoader();
-                    Loader.setLocation(getClass().getResource("deluxe-view.fxml"));
-                    try {
-                        Loader.load();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    DeluxeController deluxe = Loader.getController();
-                    deluxe.setCustomerAndNumber(phoneNumber, "deluxe",order);
-                    root = Loader.getRoot();
-                    Stage stage = new Stage();
-                    stage.setTitle("Customize Your Pizza");
-                    stage.setScene(new Scene(root, PIZZABUILDWIDTH, PIZZABUILDHEIGHT));
-                    stage.setResizable(false);
-                    stage.show();
-                }else{
-                    Alert alert = new Alert(Alert.AlertType.WARNING);
-                    alert.setTitle("Warning!!");
-                    alert.setHeaderText("Phone Number Entered is not 10 Digits");
-                    alert.setContentText("Please enter valid Phone Number.");
-                    alert.showAndWait();
                 }
-            }else{
+                FXMLLoader Loader = new FXMLLoader();
+                Loader.setLocation(getClass().getResource("deluxe-view.fxml"));
+                try {
+                    Loader.load();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                DeluxeController deluxe = Loader.getController();
+                deluxe.setCustomerAndNumber(phoneNumber, "deluxe", order);
+                root = Loader.getRoot();
+                Stage stage = new Stage();
+                stage.setTitle("Customize Your Pizza");
+                stage.setScene(new Scene(root, PIZZABUILDWIDTH, PIZZABUILDHEIGHT));
+                stage.setResizable(false);
+                stage.show();
+            } else {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Warning!!");
-                alert.setHeaderText("No Phone Number Entered");
-                alert.setContentText("Please enter Phone Number.");
+                alert.setHeaderText("Phone Number Entered is not 10 Digits");
+                alert.setContentText("Please enter valid Phone Number.");
                 alert.showAndWait();
             }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning!!");
+            alert.setHeaderText("No Phone Number Entered");
+            alert.setContentText("Please enter Phone Number.");
+            alert.showAndWait();
         }
+    }
 
     @FXML
     protected void onHawaiianClick() {
@@ -76,49 +77,48 @@ public class HelloController {
         Parent root;
         if (result.matches("[0-9]+")) {
             if (result.length() == NUMBERLENGTH) {
-                if (result.length() == NUMBERLENGTH) {
-                    if (phoneNumber == "") {
+                if (phoneNumber == "") {
+                    order = new Orders(result);
+                    phoneNumber = result;
+                } else {
+                    if (!result.equals(order.getPhoneNum())) {
                         order = new Orders(result);
                         phoneNumber = result;
-                    } else {
-                        if (!result.equals(order.getPhoneNum())) {
-                            order = new Orders(result);
-                            phoneNumber = result;
-                        }
                     }
-                    FXMLLoader Loader = new FXMLLoader();
-                    Loader.setLocation(getClass().getResource("deluxe-view.fxml"));
-                    try {
-                        Loader.load();
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
-                    DeluxeController deluxe = Loader.getController();
-                    deluxe.setCustomerAndNumber(phoneNumber, "hawaiian", order);
-                    root = Loader.getRoot();
-                    Stage stage = new Stage();
-                    stage.setTitle("Customize Your Pizza");
-                    stage.setScene(new Scene(root, PIZZABUILDWIDTH, PIZZABUILDHEIGHT));
-                    stage.setResizable(false);
-                    stage.show();
-
-
-                } else {
-                    Alert alert = new Alert(Alert.AlertType.WARNING);
-                    alert.setTitle("Warning!!");
-                    alert.setHeaderText("Phone Number Entered is not 10 Digits");
-                    alert.setContentText("Please enter valid Phone Number.");
-                    alert.showAndWait();
                 }
+                FXMLLoader Loader = new FXMLLoader();
+                Loader.setLocation(getClass().getResource("deluxe-view.fxml"));
+                try {
+                    Loader.load();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+                DeluxeController deluxe = Loader.getController();
+                deluxe.setCustomerAndNumber(phoneNumber, "hawaiian", order);
+                root = Loader.getRoot();
+                Stage stage = new Stage();
+                stage.setTitle("Customize Your Pizza");
+                stage.setScene(new Scene(root, PIZZABUILDWIDTH, PIZZABUILDHEIGHT));
+                stage.setResizable(false);
+                stage.show();
+
 
             } else {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Warning!!");
-                alert.setHeaderText("No Phone Number Entered");
-                alert.setContentText("Please enter Phone Number.");
+                alert.setHeaderText("Phone Number Entered is not 10 Digits");
+                alert.setContentText("Please enter valid Phone Number.");
                 alert.showAndWait();
             }
+
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning!!");
+            alert.setHeaderText("No Phone Number Entered");
+            alert.setContentText("Please enter Phone Number.");
+            alert.showAndWait();
         }
+
     }
 
     @FXML
@@ -195,7 +195,7 @@ public class HelloController {
                     ex.printStackTrace();
                 }
                 CurrentOrderController cuurent = Loader.getController();
-                cuurent.setCustomerAndNumber(order);
+                cuurent.setCustomerAndNumber(order,storeOrder);
                 root = Loader.getRoot();
                 Stage stage = new Stage();
                 stage.setTitle("Customize Your Pizza");
@@ -209,7 +209,6 @@ public class HelloController {
                 alert.setContentText("Please enter valid Phone Number.");
                 alert.showAndWait();
             }
-
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning!!");
@@ -219,7 +218,7 @@ public class HelloController {
         }
 
     }
-    /*
+
     @FXML
     protected void onStoreOrderClick() {
         Parent root;
@@ -228,7 +227,7 @@ public class HelloController {
             Loader.setLocation(getClass().getResource("storeorders-view.fxml"));
             Loader.load();
             StoreOrdersController deluxe = Loader.getController();
-            deluxe.setCustomerAndNumber(customer);
+            deluxe.setCustomerAndNumber(storeOrder);
             root = Loader.getRoot();
             Stage stage = new Stage();
             stage.setTitle("Current Order");
@@ -239,5 +238,5 @@ public class HelloController {
             e.printStackTrace();
         }
     }
-*/
-    }
+
+}
