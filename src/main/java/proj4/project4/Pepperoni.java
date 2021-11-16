@@ -1,6 +1,7 @@
 package proj4.project4;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
 
@@ -47,6 +48,18 @@ public class Pepperoni extends Pizza{
     @Override
     public void removeTopping(Topping top){
         toppings.remove(top);
+    }
+
+    @Override
+    public ArrayList<Topping> unusedToppings() {
+        ArrayList<Topping> out = new ArrayList<>();
+        for(Topping t: Topping.values()){
+            out.add(t);
+            if(toppings.contains(t)){
+                out.remove(t);
+            }
+        }
+        return out;
     }
 
     @Override

@@ -50,6 +50,18 @@ public class Hawaiian extends Pizza{
     }
 
     @Override
+    public ArrayList<Topping> unusedToppings() {
+        ArrayList<Topping> out = new ArrayList<>();
+        for(Topping t: Topping.values()){
+            out.add(t);
+            if(toppings.contains(t)){
+                out.remove(t);
+            }
+        }
+        return out;
+    }
+
+    @Override
     public String[] getTopppings(){
         String[] topList = new String[toppings.size()];
         for(int i = 0; i < toppings.size();i++){
