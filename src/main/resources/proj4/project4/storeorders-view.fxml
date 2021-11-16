@@ -7,7 +7,7 @@
    <children>
       <Label layoutX="266.0" layoutY="40.0" text="Store Orders" />
       <Label layoutX="43.0" layoutY="84.0" text="Customer Phone Number: " />
-      <MenuButton fx:id="storeOrderPhoneNumber" layoutX="194.0" layoutY="80.0" mnemonicParsing="false" text="MenuButton" />
+      <MenuButton fx:id="storeOrderPhoneNumber" layoutX="194.0" layoutY="80.0" mnemonicParsing="false" text="Phone Numbers" />
       <Label layoutX="320.0" layoutY="84.0" text="Order Total $" />
       <TextField fx:id="StoreOrderTotal" layoutX="403.0" layoutY="80.0" />
       <ListView fx:id="storeOrderListView" layoutX="36.0" layoutY="119.0" prefHeight="215.0" prefWidth="518.0" />

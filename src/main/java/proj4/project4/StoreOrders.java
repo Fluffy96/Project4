@@ -12,7 +12,7 @@ public class StoreOrders {
     private static ArrayList<Orders> orders = new ArrayList<>();
     private static ArrayList<String> phoneNumberList = new ArrayList<>();
     private static String currentNumber;
-
+    private static final int NOEXSIST = -1;
     public StoreOrders(){
 
     }
@@ -28,8 +28,11 @@ public class StoreOrders {
         return orders;
     }
 
-    public  ArrayList<ObservableList<Orders>> getFinalOrders() {
-        return finalOrders;
+    public void removeOrder(String number){
+        int index = phoneNumberList.indexOf(number);
+        phoneNumberList.remove(index);
+        totalPrices.remove(index);
+        orders.remove(index);
     }
 
     public  ArrayList<String> getPhoneNumberList() {
@@ -44,8 +47,12 @@ public class StoreOrders {
         return totalPrices;
     }
 
-    public  String getCurrentNumber() {
-        return currentNumber;
+    public boolean isIn(String num){
+        if(phoneNumberList.indexOf(num) != NOEXSIST){
+             return true;
+        }else{
+            return false;
+        }
     }
 
     public  void setCurrentNumber(String currentNumber) {

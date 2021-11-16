@@ -33,7 +33,6 @@ public class HelloController {
                 if (phoneNumber == "") {
                     order = new Orders(result);
                     phoneNumber = result;
-                    System.out.println(result + "   " + order.getPhoneNum() + "    " + phoneNumber);
                 } else {
                     if (!result.equals(order.getPhoneNum())) {
                         order = new Orders(result);
@@ -222,21 +221,22 @@ public class HelloController {
     @FXML
     protected void onStoreOrderClick() {
         Parent root;
-        try{
-            FXMLLoader Loader = new FXMLLoader();
-            Loader.setLocation(getClass().getResource("storeorders-view.fxml"));
+        FXMLLoader Loader = new FXMLLoader();
+        Loader.setLocation(getClass().getResource("storeorders-view.fxml"));
+        try {
             Loader.load();
-            StoreOrdersController deluxe = Loader.getController();
-            deluxe.setCustomerAndNumber(storeOrder);
-            root = Loader.getRoot();
-            Stage stage = new Stage();
-            stage.setTitle("Current Order");
-            stage.setScene(new Scene(root, STOREORDERWIDTH, STOREORDERHEIGHT));
-            stage.setResizable(false);
-            stage.show();
-        }catch(IOException e){
-            e.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
+        StoreOrdersController deluxe = Loader.getController();
+        deluxe.setCustomerAndNumber(storeOrder);
+        root = Loader.getRoot();
+        Stage stage = new Stage();
+        stage.setTitle("Current Order");
+        stage.setScene(new Scene(root, STOREORDERWIDTH, STOREORDERHEIGHT));
+        stage.setResizable(false);
+        stage.show();
+
     }
 
 }

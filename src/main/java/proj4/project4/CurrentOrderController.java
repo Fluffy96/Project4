@@ -17,7 +17,7 @@ public class CurrentOrderController {
     private String phoneNumber;
     @FXML
     private TextField currentOrderPhoneNumber,subtotal,currentOrderTotal,salestax;
-    private ObservableList<String> currOrders = FXCollections.observableArrayList ();
+    private ObservableList<String> currOrders = FXCollections.observableArrayList();
     @FXML
     private ListView<String> currentOrderListView;
     @FXML
@@ -82,9 +82,11 @@ public class CurrentOrderController {
 
     @FXML
     protected void onPlaceOrder(){
-        storeOrders.addOrders(order);
-        storeOrders.addTP(Double.parseDouble(currentOrderTotal.getText()));
-        storeOrders.addPhoneNumbers(phoneNumber);
+        if(storeOrders.isIn(phoneNumber) == false) {
+            storeOrders.addOrders(order);
+            storeOrders.addTP(Double.parseDouble(currentOrderTotal.getText()));
+            storeOrders.addPhoneNumbers(phoneNumber);
+        }
     }
 
 }
