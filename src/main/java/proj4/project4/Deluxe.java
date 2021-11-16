@@ -86,4 +86,25 @@ public class Deluxe extends Pizza{
         return out;
     }
 
+    @Override
+    public int getMinTop(){
+        return MINTOPPINGS;
+    }
+
+    @Override
+    public void changeSize(String s){
+        if(s.toLowerCase().equals( "small")){
+            size = Size.SMALL;
+            double amount = BASEPRICE+size.getPrice();
+            setprice(amount);
+        }else if(s.toLowerCase().equals("medium")){
+            size = Size.MEDIUM;
+            double amount = BASEPRICE+size.getPrice();
+            setprice(amount);
+        }else{
+            size = Size.LARGE;
+            double amount = BASEPRICE+size.getPrice();
+            setprice(amount);
+        }
+    };
 }

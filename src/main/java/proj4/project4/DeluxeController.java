@@ -27,13 +27,14 @@ public class DeluxeController {
     private String phoneNumber;
     private Pizza initialSmallPizza;
     private DecimalFormat df = new DecimalFormat("#.##");
-    private final int MINIMUMTOPPINGS = 5;
-    private String pizzaType;
+    private final double SIZEINCREASE = 2;
+    private String falvor;
     private Orders order;
 
 
-    public void setCustomerAndNumber(String num, String falvor, Orders order){
-        order = order;
+    public void setCustomerAndNumber(String num, String fal, Orders ord){
+        order = ord;
+        falvor = fal;
         deluxePrice.setEditable(false);
         phoneNumber = num;
         initialSmallPizza = PizzaMaker.createPizza(falvor);
@@ -41,7 +42,9 @@ public class DeluxeController {
         deluxeAdditional.getItems().clear();
         selectTopping.addAll(initialSmallPizza.getTopppings());
         deluxeToppings.setItems(selectTopping);
-        additionalTopping.addAll(Topping.HAM.toString(),Topping.PINEAPPLE.toString());
+        for(int i =0; i< initialSmallPizza.unusedToppings().size();i++){
+            additionalTopping.add(initialSmallPizza.unusedToppings().get(i).toString());
+        }
         deluxeAdditional.setItems(additionalTopping);
         isSizeSelect.setText("Small");
         deluxePrice.setText(String.valueOf(initialSmallPizza.getprice()));
@@ -72,13 +75,13 @@ public class DeluxeController {
         if( selected!=null) {
             ObservableList<String> items = deluxeToppings.getItems();
             int len = items.size();
-            if (items.contains(selected) && len > MINIMUMTOPPINGS) {
+            if (items.contains(selected) && len > initialSmallPizza.getMinTop()) {
                 deluxeToppings.getItems().remove(selected);
                 initialSmallPizza.removeTopping(Topping.toTopping(selected));
                 deluxePrice.setText(df.format(initialSmallPizza.getprice()));
             }
             items = deluxeAdditional.getItems();
-            if (!items.contains(selected) && len > MINIMUMTOPPINGS) {
+            if (!items.contains(selected) && len > initialSmallPizza.getMinTop()) {
                 deluxeAdditional.getItems().add(selected);
             }
         }
@@ -97,10 +100,13 @@ public class DeluxeController {
     private void setSmall(){
         deluxeToppings.getItems().clear();
         deluxeAdditional.getItems().clear();
-        initialSmallPizza = new Deluxe("Small");
+        initialSmallPizza = PizzaMaker.createPizza(falvor);
+        initialSmallPizza.changeSize("Small");
         selectTopping.addAll(initialSmallPizza.getTopppings());
         deluxeToppings.setItems(selectTopping);
-        additionalTopping.addAll(Topping.HAM.toString(),Topping.PINEAPPLE.toString());
+        for(int i =0; i< initialSmallPizza.unusedToppings().size();i++){
+            additionalTopping.add(initialSmallPizza.unusedToppings().get(i).toString());
+        }
         deluxeAdditional.setItems(additionalTopping);
         isSizeSelect.setText("Small");
         deluxePrice.setText(df.format(initialSmallPizza.getprice()));
@@ -113,10 +119,13 @@ public class DeluxeController {
     private void setMedium(){
         deluxeToppings.getItems().clear();
         deluxeAdditional.getItems().clear();
-        initialSmallPizza = new Deluxe("Medium");
+        initialSmallPizza = PizzaMaker.createPizza(falvor);
+        initialSmallPizza.changeSize("Medium");
         selectTopping.addAll(initialSmallPizza.getTopppings());
         deluxeToppings.setItems(selectTopping);
-        additionalTopping.addAll(Topping.HAM.toString(),Topping.PINEAPPLE.toString());
+        for(int i =0; i< initialSmallPizza.unusedToppings().size();i++){
+            additionalTopping.add(initialSmallPizza.unusedToppings().get(i).toString());
+        }
         deluxeAdditional.setItems(additionalTopping);
         isSizeSelect.setText("Medium");
         deluxePrice.setText(df.format(initialSmallPizza.getprice()));
@@ -129,10 +138,13 @@ public class DeluxeController {
     private void setLarge(){
         deluxeToppings.getItems().clear();
         deluxeAdditional.getItems().clear();
-        initialSmallPizza = new Deluxe("Large");
+        initialSmallPizza = PizzaMaker.createPizza(falvor);
+        initialSmallPizza.changeSize("Large");
         selectTopping.addAll(initialSmallPizza.getTopppings());
         deluxeToppings.setItems(selectTopping);
-        additionalTopping.addAll(Topping.HAM.toString(),Topping.PINEAPPLE.toString());
+        for(int i =0; i< initialSmallPizza.unusedToppings().size();i++){
+            additionalTopping.add(initialSmallPizza.unusedToppings().get(i).toString());
+        }
         deluxeAdditional.setItems(additionalTopping);
         isSizeSelect.setText("Large");
         deluxePrice.setText(df.format(initialSmallPizza.getprice()));

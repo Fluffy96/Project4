@@ -5,22 +5,34 @@ import java.util.ArrayList;
 
 public class Orders {
     private String phoneNum;
-    private ArrayList<Pizza> pizzaList;
+    private ArrayList<Pizza> pizzaList = new ArrayList<>();
     private double price;
     private DecimalFormat df = new DecimalFormat("#.##");
 
-    public Orders(String phoneNum){
-        phoneNum = phoneNum;
+    public Orders(String phoneNu){
+        phoneNum = phoneNu;
+    }
+    public Orders(){
     }
     public void addPizza(Pizza piz, double price){
         pizzaList.add(piz);
         price = price;
+    }
+    public  ArrayList<Pizza> getPizzaList(){
+        if(pizzaList.size() != -1){
+            return pizzaList;
+        }else{
+            return null;
+        }
     }
     public double getPrice(){
         return price;
     }
     public void removePizza(Pizza piz){
         pizzaList.remove(piz);
+    }
+    public String getPhoneNum(){
+        return phoneNum;
     }
 
 

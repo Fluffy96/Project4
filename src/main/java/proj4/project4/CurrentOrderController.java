@@ -13,8 +13,8 @@ import java.util.ArrayList;
 
 public class CurrentOrderController {
     private DecimalFormat df = new DecimalFormat("#.##");
-    private Customer customer = new Customer();
-    private int phoneNumber;
+    private Orders order = new Orders();
+    private String phoneNumber;
     @FXML
     private TextField currentOrderPhoneNumber,subtotal,currentOrderTotal,salestax;
     private ObservableList<String> currOrders = FXCollections.observableArrayList ();
@@ -26,23 +26,18 @@ public class CurrentOrderController {
     private static final int NOT_FOUND = -1;
     private static final double NO_COST = 0.0;
 
-    /**
-     * Method allows hello controler to pass customer data and current orders phone number
-     * @param num
-     * @param cust
-     */
-    public void setCustomerAndNumber(int num, Customer cust){
+
+    public void setCustomerAndNumber(Orders orde){
+        order = orde;
         currentOrderPhoneNumber.setEditable(false);
-        currentOrderPhoneNumber.setText(Integer.toString(num));
+        currentOrderPhoneNumber.setText(order.getPhoneNum());
         subtotal.setEditable(false);
         currentOrderTotal.setEditable(false);
         salestax.setEditable(false);
-        phoneNumber = num;
-        customer = cust;
+        phoneNumber = order.getPhoneNum();
         double cost = NO_COST;
-
-        if(cust.getPizza(num) != null) {
-            ArrayList<Pizza> list  = cust.getPizza(num);
+        if(order.getPizzaList() != null) {
+            ArrayList<Pizza> list  = order.getPizzaList();
             for (int i = 0; i < list.size(); i++) {
                 currOrders.add(list.get(i).toString());
                 cost = cost + list.get(i).getprice();
@@ -67,9 +62,9 @@ public class CurrentOrderController {
         int indexPizza = currentOrderListView.getSelectionModel().getSelectedIndex();
         if(indexPizza != NOT_FOUND){
             currentOrderListView.getItems().clear();
-            customer.removePizza(phoneNumber,indexPizza);
+            order.removePizza(order.getPizzaList().get(indexPizza));
             double cost = NO_COST;
-            ArrayList<Pizza> list  = customer.getPizza(phoneNumber);
+            ArrayList<Pizza> list  = order.getPizzaList();
             for(int i =0; i< list.size(); i++){
                 currOrders.add(list.get(i).toString());
                 cost = cost + list.get(i).getprice();
@@ -85,7 +80,7 @@ public class CurrentOrderController {
 
     @FXML
     protected void onPlaceOrder(){
-        customer.addOrder(phoneNumber);
+
     }
 
 }
