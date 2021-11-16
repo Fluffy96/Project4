@@ -66,7 +66,7 @@ public class HelloController {
 
 
     @FXML
-    protected void onHawaiianClick() {try {
+    protected void onHawaiianClick() {
         String result = cNum.getText();
         Parent root;
         if(result.matches("[0-9]+")){
@@ -74,7 +74,11 @@ public class HelloController {
                 order = new Orders(result);
                 FXMLLoader Loader = new FXMLLoader();
                 Loader.setLocation(getClass().getResource("deluxe-view.fxml"));
-                Loader.load();
+                try {
+                    Loader.load();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
                 DeluxeController deluxe = Loader.getController();
                 deluxe.setCustomerAndNumber(phoneNumber, "hawaiian",order);
                 root = Loader.getRoot();
@@ -101,19 +105,9 @@ public class HelloController {
             alert.showAndWait();
         }
     }
-    //Show the error message with a pop-up window.
-    catch (NumberFormatException | IOException e) {
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Warning!!");
-        alert.setHeaderText("No Phone Number Entered");
-        alert.setContentText("Please enter Phone Number.");
-        alert.showAndWait();
 
-    }
-    }
     @FXML
     protected void onPepperoniClick() {
-        try {
             String result = cNum.getText();
             Parent root;
             if(result.matches("[0-9]+")){
@@ -121,7 +115,11 @@ public class HelloController {
                     order = new Orders(result);
                     FXMLLoader Loader = new FXMLLoader();
                     Loader.setLocation(getClass().getResource("deluxe-view.fxml"));
-                    Loader.load();
+                    try {
+                        Loader.load();
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                     DeluxeController deluxe = Loader.getController();
                     deluxe.setCustomerAndNumber(phoneNumber, "pepperoni",order);
                     root = Loader.getRoot();
@@ -148,16 +146,7 @@ public class HelloController {
                 alert.showAndWait();
             }
         }
-        //Show the error message with a pop-up window.
-        catch (NumberFormatException | IOException e) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning!!");
-            alert.setHeaderText("No Phone Number Entered");
-            alert.setContentText("Please enter Phone Number.");
-            alert.showAndWait();
-
-        }
-    }/*
+    /*
     @FXML
     protected void onCurrentOrderClick() {
         try {
