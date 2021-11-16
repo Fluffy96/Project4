@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -23,22 +24,19 @@ public class DeluxeController {
     private MenuButton isSizeSelect;
     @FXML
     private TextField deluxePrice;
-    private Customer customer = new Customer();
-    private int phoneNumber;
-    private Deluxe initialSmallPizza;
+    private String phoneNumber;
+    private Pizza initialSmallPizza;
     private DecimalFormat df = new DecimalFormat("#.##");
     private final int MINIMUMTOPPINGS = 5;
+    private String pizzaType;
+    private Orders order;
 
-    /**
-     * Method allows us to pass phonenumber and customer object from hello controller; It sets the initial pizza at size small with deluxe toppings
-     * @param num
-     * @param cust
-     */
-    public void setCustomerAndNumber(int num, Customer cust){
+
+    public void setCustomerAndNumber(String num, String falvor, Orders order){
+        order = order;
         deluxePrice.setEditable(false);
         phoneNumber = num;
-        customer = cust;
-        initialSmallPizza = new Deluxe("Small");
+        initialSmallPizza = PizzaMaker.createPizza(falvor);
         deluxeToppings.getItems().clear();
         deluxeAdditional.getItems().clear();
         selectTopping.addAll(initialSmallPizza.getTopppings());
@@ -47,22 +45,6 @@ public class DeluxeController {
         deluxeAdditional.setItems(additionalTopping);
         isSizeSelect.setText("Small");
         deluxePrice.setText(String.valueOf(initialSmallPizza.getprice()));
-    }
-
-    @FXML
-    private void setDeluxeAdditional(){
-
-
-    }
-
-    @FXML
-    protected void onAdd(){
-        customer.addPiza(phoneNumber, initialSmallPizza);
-        //NEED to make scene close!!!
-    }
-    @FXML
-    protected void onSelectSize(){
-
     }
 
     @FXML
@@ -83,6 +65,7 @@ public class DeluxeController {
             }
         }
     }
+
     @FXML
     protected void onRemoveTopping(){
         String selected = deluxeToppings.getSelectionModel().getSelectedItem();
@@ -101,7 +84,11 @@ public class DeluxeController {
         }
     }
 
-
+    @FXML
+    protected void onAdd(){
+        order.addPizza(initialSmallPizza,initialSmallPizza.getprice());
+        //NEED to make scene close!!!
+    }
 
     /**
      * Method makes it so when the small pizza size is chosen price and pizza update to that of original deluxe pizza

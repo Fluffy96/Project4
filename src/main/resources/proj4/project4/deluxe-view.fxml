@@ -11,7 +11,7 @@
             <Image url="@delPizza.jpg" />
          </image>
       </ImageView>
-      <MenuButton fx:id="isSizeSelect" layoutX="334.0" layoutY="89.0" mnemonicParsing="false" onAction="#onSelectSize" text="Pizza Size">
+      <MenuButton fx:id="isSizeSelect" layoutX="334.0" layoutY="89.0" mnemonicParsing="false"  text="Pizza Size">
         <items>
           <MenuItem mnemonicParsing="false" onAction="#setSmall" text="Small" />
           <MenuItem mnemonicParsing="false" onAction="#setMedium" text="Medium" />

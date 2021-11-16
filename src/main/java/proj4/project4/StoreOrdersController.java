@@ -29,8 +29,7 @@ public class StoreOrdersController {
         }
     }
 
-    @FXML
-    private MenuButton storeOrderPhoneNumber;
+
 
 
 
