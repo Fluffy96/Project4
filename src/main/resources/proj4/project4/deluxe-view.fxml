@@ -6,12 +6,12 @@
 
 <AnchorPane prefHeight="550.0" prefWidth="525.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proj4.project4.DeluxeController">
    <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="36.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="image" fitHeight="150.0" fitWidth="200.0" layoutX="36.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@delPizza.jpg" />
          </image>
       </ImageView>
-      <MenuButton fx:id="isSizeSelect" layoutX="334.0" layoutY="89.0" mnemonicParsing="false"  text="Pizza Size">
+      <MenuButton fx:id="isSizeSelect" layoutX="334.0" layoutY="89.0" mnemonicParsing="false" text="Pizza Size">
         <items>
           <MenuItem mnemonicParsing="false" onAction="#setSmall" text="Small" />
           <MenuItem mnemonicParsing="false" onAction="#setMedium" text="Medium" />

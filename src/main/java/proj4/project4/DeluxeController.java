@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -24,6 +26,8 @@ public class DeluxeController {
     private MenuButton isSizeSelect;
     @FXML
     private TextField deluxePrice;
+    @FXML
+    private ImageView image;
     private String phoneNumber;
     private Pizza initialSmallPizza;
     private DecimalFormat df = new DecimalFormat("#.##");
@@ -35,6 +39,13 @@ public class DeluxeController {
     public void setCustomerAndNumber(String num, String fal, Orders ord){
         order = ord;
         falvor = fal;
+        if(fal == "deluxe"){
+            image.setImage(new Image(getClass().getResourceAsStream("delPizza.jpg")));
+        }else if (fal.toLowerCase().equals("hawaiian")){
+            image.setImage(new Image(getClass().getResourceAsStream("hawaiianhampizza.jpg")));
+        }else{
+            image.setImage(new Image(getClass().getResourceAsStream("GettyImages-1133727757.jpg")));
+        }
         deluxePrice.setEditable(false);
         phoneNumber = num;
         initialSmallPizza = PizzaMaker.createPizza(falvor);
