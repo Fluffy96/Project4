@@ -1,5 +1,10 @@
 package proj4.project4;
+/**
+ * This class is the UI that contains the run function to interract with album collections
 
+ * @author Divyesh Nemam Baskaran, Viraj Patel
+ *
+ */
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,6 +19,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Controler that handels store order gui
+ */
 public class StoreOrdersController {
 
     @FXML
@@ -28,7 +36,10 @@ public class StoreOrdersController {
     private String numberClicked="";
     private StoreOrders sorder = new StoreOrders();
 
-
+    /**
+     * Method called in the hello contoller class that passes store orders data to this controller
+     * @param store
+     */
     public void setCustomerAndNumber(StoreOrders store){
         sorder = store;
         phoneNumbers = sorder.getPhoneNumberList();
@@ -42,6 +53,9 @@ public class StoreOrdersController {
 
     }
 
+    /**
+     * Method that creates event hendelers for dynamically created menu items and adds pizzas owned by that number in the list view
+     */
     EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
         public void handle(ActionEvent e) {
             storeOrderListView.getItems().clear();
@@ -60,7 +74,9 @@ public class StoreOrdersController {
         }
     };
 
-
+    /**
+     * Method handels what happens when a pizza order is cancelled
+     */
     @FXML
     protected void onCancelOrder(){
         StoreOrderTotal.clear();
@@ -79,6 +95,9 @@ public class StoreOrdersController {
 
     }
 
+    /**
+     * Exports all the orders into a text file
+     */
     @FXML
     protected void onExportStoreOrders(){
         FileChooser chooser = new FileChooser();
