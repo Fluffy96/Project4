@@ -15,13 +15,17 @@ public enum Size {
     private double price;
 
     /**
-     * Sets
+     * Sets price
      * @param price
      */
     Size(double price){
         this.price = price;
     }
 
+    /**
+     * Returns price
+     * @return price
+     */
     public double getPrice(){
         return this.price;
     }
