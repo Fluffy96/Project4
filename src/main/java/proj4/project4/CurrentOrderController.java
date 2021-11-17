@@ -1,3 +1,10 @@
+/**
+ * This class is the controller of the currentorder-view.fxml
+
+ * @author Divyesh Nemam Baskaran, Viraj Patel
+ *
+ */
+
 package proj4.project4;
 
 import javafx.collections.FXCollections;
@@ -12,6 +19,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class CurrentOrderController {
+
     private DecimalFormat df = new DecimalFormat("#.##");
     private Orders order = new Orders();
     private String phoneNumber;
@@ -20,17 +28,19 @@ public class CurrentOrderController {
     private ObservableList<String> currOrders = FXCollections.observableArrayList();
     @FXML
     private ListView<String> currentOrderListView;
-    @FXML
-    private Button removePizza;
     private static final double TAX = .06625;
     private static final int NOT_FOUND = -1;
     private static final double NO_COST = 0.0;
     private StoreOrders storeOrders = new StoreOrders();
 
-
-    public void setCustomerAndNumber(Orders orde, StoreOrders stOrd){
+    /**
+     * This method runs when the Current Order View is opened.
+     * @param order
+     * @param stOrd
+     */
+    public void setCustomerAndNumber(Orders order, StoreOrders stOrd){
         storeOrders = stOrd;
-        order = orde;
+        order = order;
         currentOrderPhoneNumber.setEditable(false);
         currentOrderPhoneNumber.setText(order.getPhoneNum());
         subtotal.setEditable(false);
@@ -59,6 +69,9 @@ public class CurrentOrderController {
 
     }
 
+    /**
+     * This method removes the pizza the user has clicked on
+     */
     @FXML
     protected void onRemovePizza(){
         int indexPizza = currentOrderListView.getSelectionModel().getSelectedIndex();
@@ -80,6 +93,9 @@ public class CurrentOrderController {
 
     }
 
+    /**
+     * This method places the current order displayed
+     */
     @FXML
     protected void onPlaceOrder(){
         if(storeOrders.isIn(phoneNumber) == false) {

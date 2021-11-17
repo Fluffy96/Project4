@@ -1,3 +1,10 @@
+/**
+ * This class is the subclass of Pizza for a Deluxe Pizza
+
+ * @author Divyesh Nemam Baskaran, Viraj Patel
+ *
+ */
+
 package proj4.project4;
 
 import java.text.DecimalFormat;
@@ -10,6 +17,10 @@ public class Deluxe extends Pizza{
     public static final int MINTOPPINGS = 5;
     public static final DecimalFormat df = new DecimalFormat("#.##");
 
+    /**
+     * This is the constructor of Deluxe that creates a Deluxe type Pizza.
+     * @param pSize
+     */
     Deluxe(String pSize){
         if(pSize.toLowerCase().equals( "small")){
             size = Size.SMALL;
@@ -29,6 +40,10 @@ public class Deluxe extends Pizza{
 
     }
 
+    /**
+     * This method returns the price of the pizza.
+     * @return pizzaPrice
+     */
     @Override
     public double getprice() {
         double amount = BASEPRICE+size.getPrice();
@@ -39,26 +54,46 @@ public class Deluxe extends Pizza{
         return pizzaPrice;
     }
 
+    /**
+     * This method allows the user to set the price of the pizza.
+     * @param cost
+     */
     @Override
     public void setprice(double cost) {
         pizzaPrice = cost;
     }
 
+    /**
+     * This method allows user to add a topping to the Deluxe Object
+     * @param top
+     */
     @Override
     public void addTopping(Topping top){
         toppings.add(top);
     }
 
+    /**
+     * This method allows user to remove a topping from the Deluxe Object
+     * @param top
+     */
     @Override
     public void removeTopping(Topping top){
         toppings.remove(top);
     }
 
+    /**
+     * This method allows the user to set the toppings with an ArrayList<Top>
+     * @param tops
+     */
     @Override
     public void setToppings(ArrayList <Topping> tops) {
         toppings = tops;
     }
 
+    /**
+     * This method returns a list of unused toppings
+     * @return
+     */
     @Override
     public ArrayList<Topping> unusedToppings() {
         ArrayList<Topping> out = new ArrayList<>();
@@ -71,6 +106,10 @@ public class Deluxe extends Pizza{
         return out;
     }
 
+    /**
+     * This method returns a String[] of toppings
+     * @return
+     */
     @Override
     public String[] getTopppings(){
         String[] topList = new String[toppings.size()];
@@ -80,6 +119,10 @@ public class Deluxe extends Pizza{
         return topList;
     }
 
+    /**
+     * This method return the toString of the Object
+     * @return
+     */
     @Override
     public String toString(){
         String out = "Deluxe Pizza, ";
@@ -92,11 +135,19 @@ public class Deluxe extends Pizza{
         return out;
     }
 
+    /**
+     * This method returns the minimum number of toppings for this pizza
+     * @return
+     */
     @Override
     public int getMinTop(){
         return MINTOPPINGS;
     }
 
+    /**
+     * This allows the user to change the size of the pizza
+     * @param s
+     */
     @Override
     public void changeSize(String s){
         if(s.toLowerCase().equals( "small")){

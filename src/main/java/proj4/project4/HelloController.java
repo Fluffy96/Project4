@@ -1,3 +1,10 @@
+/**
+ * This class is the controller class for the main page .fxml (hello-view.fxml)
+
+ * @author Divyesh Nemam Baskaran, Viraj Patel
+ *
+ */
+
 package proj4.project4;
 
 import javafx.collections.FXCollections;

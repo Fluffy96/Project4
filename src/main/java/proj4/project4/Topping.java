@@ -13,7 +13,7 @@ public enum Topping {
     PEPPERONI, HAM, PINEAPPLE, OLIVES, CHICKEN, MUSHROOM, ONION;
 
     /**
-     * Method takes in string of the topping and returns the topping objecc of the topping
+     * Method takes in string of the topping and returns the topping object of the topping
      * @param top
      * @return Topping
      */

@@ -1,3 +1,11 @@
+/**
+ * This class is the Orders class
+ *  - Control a list of pizza orders for a given customer
+
+ * @author Divyesh Nemam Baskaran, Viraj Patel
+ *
+ */
+
 package proj4.project4;
 
 import java.text.DecimalFormat;

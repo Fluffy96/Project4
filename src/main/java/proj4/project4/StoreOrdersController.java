@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * Controler that handels store order gui
+ * Controller that handles store order gui
  */
 public class StoreOrdersController {
 
@@ -37,7 +37,7 @@ public class StoreOrdersController {
     private StoreOrders sorder = new StoreOrders();
 
     /**
-     * Method called in the hello contoller class that passes store orders data to this controller
+     * Method called in the hello controller class that passes store orders data to this controller
      * @param store
      */
     public void setCustomerAndNumber(StoreOrders store){
@@ -54,7 +54,7 @@ public class StoreOrdersController {
     }
 
     /**
-     * Method that creates event hendelers for dynamically created menu items and adds pizzas owned by that number in the list view
+     * Method that creates event handlers for dynamically created menu items and adds pizzas owned by that number in the list view
      */
     EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
         public void handle(ActionEvent e) {
@@ -75,7 +75,7 @@ public class StoreOrdersController {
     };
 
     /**
-     * Method handels what happens when a pizza order is cancelled
+     * Method handles what happens when a pizza order is cancelled
      */
     @FXML
     protected void onCancelOrder(){
