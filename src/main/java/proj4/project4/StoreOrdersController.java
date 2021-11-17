@@ -6,10 +6,16 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class StoreOrdersController {
+
     @FXML
     private MenuButton storeOrderPhoneNumber;
     @FXML
@@ -72,9 +78,29 @@ public class StoreOrdersController {
 
 
     }
+
     @FXML
     protected void onExportStoreOrders(){
-
+        FileChooser chooser = new FileChooser();
+        chooser.setTitle("Open a Target File to Export");
+        chooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text Files", "*.txt"), new FileChooser.ExtensionFilter("All Files", "*,*"));
+        Stage stage = new Stage();
+        File targetFile  = chooser.showSaveDialog(stage);
+        FileWriter writer;
+        if(targetFile!=null) {
+            try {
+                writer = new FileWriter(targetFile);
+                for(int y = 0; y<phoneNumbers.size(); y++) {
+                    writer.write("User Phone Number: "+phoneNumbers.get(y)+ System.lineSeparator());
+                    for(int x = 0; x<order.get(y).getPizzaList().size(); x++) {
+                        writer.write(order.get(y).getPizzaList().get(x)+ System.lineSeparator());
+                    }
+                }
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }

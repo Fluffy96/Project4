@@ -3,6 +3,7 @@ package proj4.project4;
 import java.util.Locale;
 
 public class PizzaMaker {
+
     public static Pizza createPizza(String flavor){
         switch (flavor.toLowerCase()){
             case "deluxe":

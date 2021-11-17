@@ -29,6 +29,8 @@ public abstract class Pizza {
 
     public abstract void removeTopping(Topping top);
 
+    public abstract void setToppings(ArrayList<Topping> tops);
+
     public abstract ArrayList<Topping> unusedToppings();
 
     public abstract String[] getTopppings();

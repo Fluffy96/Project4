@@ -51,6 +51,11 @@ public class Pepperoni extends Pizza{
     }
 
     @Override
+    public void setToppings(ArrayList<Topping> tops) {
+        toppings = tops;
+    }
+
+    @Override
     public ArrayList<Topping> unusedToppings() {
         ArrayList<Topping> out = new ArrayList<>();
         for(Topping t: Topping.values()){

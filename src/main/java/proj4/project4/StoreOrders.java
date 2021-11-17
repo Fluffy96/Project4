@@ -24,6 +24,7 @@ public class StoreOrders {
     public void addTP(double totPrice){
         totalPrices.add(totPrice);
     }
+
     public  ArrayList<Orders> getOrders() {
         return orders;
     }

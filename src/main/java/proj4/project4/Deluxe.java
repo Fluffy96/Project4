@@ -28,6 +28,7 @@ public class Deluxe extends Pizza{
         toppings.addAll(Arrays.asList(otherList));
 
     }
+
     @Override
     public double getprice() {
         double amount = BASEPRICE+size.getPrice();
@@ -51,6 +52,11 @@ public class Deluxe extends Pizza{
     @Override
     public void removeTopping(Topping top){
         toppings.remove(top);
+    }
+
+    @Override
+    public void setToppings(ArrayList <Topping> tops) {
+        toppings = tops;
     }
 
     @Override

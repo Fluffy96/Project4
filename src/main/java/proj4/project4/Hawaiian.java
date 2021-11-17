@@ -71,6 +71,11 @@ public class Hawaiian extends Pizza{
     }
 
     @Override
+    public void setToppings(ArrayList <Topping> tops) {
+        toppings = tops;
+    }
+
+    @Override
     public String toString(){
         String out = "Hawaiian Pizza, ";
         for(Topping top: toppings){
