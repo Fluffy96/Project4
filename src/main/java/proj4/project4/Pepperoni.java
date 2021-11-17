@@ -1,3 +1,10 @@
+/**
+ * This class is the subclass of Pizza for a Pepperoni Pizza
+
+ * @author Divyesh Nemam Baskaran, Viraj Patel
+ *
+ */
+
 package proj4.project4;
 
 import java.text.DecimalFormat;

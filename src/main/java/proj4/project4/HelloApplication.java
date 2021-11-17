@@ -1,3 +1,10 @@
+/**
+ * This class is the main runner class for the JavaFX Application
+
+ * @author Divyesh Nemam Baskaran, Viraj Patel
+ *
+ */
+
 package proj4.project4;
 
 import javafx.application.Application;

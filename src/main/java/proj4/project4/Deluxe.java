@@ -81,11 +81,19 @@ public class Deluxe extends Pizza{
         toppings.remove(top);
     }
 
+    /**
+     * This method allows the user to set the toppings with an ArrayList<Top>
+     * @param tops
+     */
     @Override
     public void setToppings(ArrayList <Topping> tops) {
         toppings = tops;
     }
 
+    /**
+     * This method returns a list of unused toppings
+     * @return
+     */
     @Override
     public ArrayList<Topping> unusedToppings() {
         ArrayList<Topping> out = new ArrayList<>();
@@ -98,6 +106,10 @@ public class Deluxe extends Pizza{
         return out;
     }
 
+    /**
+     * This method returns a String[] of toppings
+     * @return
+     */
     @Override
     public String[] getTopppings(){
         String[] topList = new String[toppings.size()];
@@ -107,6 +119,10 @@ public class Deluxe extends Pizza{
         return topList;
     }
 
+    /**
+     * This method return the toString of the Object
+     * @return
+     */
     @Override
     public String toString(){
         String out = "Deluxe Pizza, ";
@@ -119,11 +135,19 @@ public class Deluxe extends Pizza{
         return out;
     }
 
+    /**
+     * This method returns the minimum number of toppings for this pizza
+     * @return
+     */
     @Override
     public int getMinTop(){
         return MINTOPPINGS;
     }
 
+    /**
+     * This allows the user to change the size of the pizza
+     * @param s
+     */
     @Override
     public void changeSize(String s){
         if(s.toLowerCase().equals( "small")){

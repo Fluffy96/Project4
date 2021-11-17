@@ -1,3 +1,10 @@
+/**
+ * This class is the controller of the deluxe-view.fxml
+
+ * @author Divyesh Nemam Baskaran, Viraj Patel
+ *
+ */
+
 package proj4.project4;
 
 import javafx.collections.FXCollections;
@@ -35,7 +42,12 @@ public class DeluxeController {
     private String falvor;
     private Orders order;
 
-
+    /**
+     * This method sets the customers number and pizza flavor. Runs on launch
+     * @param num - number of the customer
+     * @param fal - type of pizza the customer wants
+     * @param ord - the current order of the customer
+     */
     public void setCustomerAndNumber(String num, String fal, Orders ord){
         order = ord;
         falvor = fal;
@@ -61,6 +73,9 @@ public class DeluxeController {
         deluxePrice.setText(String.valueOf(initialSmallPizza.getprice()));
     }
 
+    /**
+     * This method adds the selected topping to the pizza
+     */
     @FXML
     protected void onAddTopping(){
         String selected = deluxeAdditional.getSelectionModel().getSelectedItem();
@@ -80,6 +95,9 @@ public class DeluxeController {
         }
     }
 
+    /**
+     * This method removes the selected topping from the pizza
+     */
     @FXML
     protected void onRemoveTopping(){
         String selected = deluxeToppings.getSelectionModel().getSelectedItem();
@@ -98,6 +116,9 @@ public class DeluxeController {
         }
     }
 
+    /**
+     * This method adds a pizza to the current order
+     */
     @FXML
     protected void onAdd(){
         order.addPizza(initialSmallPizza,initialSmallPizza.getprice());
