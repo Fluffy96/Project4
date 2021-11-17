@@ -105,7 +105,7 @@ class PepperoniTest {
     }
     /**
      * Test for calculating price with 8 toppings for each pizza size.
-     * This should be the same as 7 toppings becuase we can't have more
+     * This should be the same as 7 toppings because we can't have more
      * than 7 toppings.
      */
     @Test
@@ -118,7 +118,6 @@ class PepperoniTest {
         toppings.add(Topping.HAM);
         toppings.add(Topping.OLIVES);
         toppings.add(Topping.PEPPERONI);
-        //toppings.add(Topping.ONION);
 
         Pepperoni testSmall = new Pepperoni("small");
         testSmall.setToppings(toppings);
@@ -138,7 +137,7 @@ class PepperoniTest {
     }
     /**
      * Test for calculating price with all possible toppings for each pizza size.
-     * This should be the same price as 7 toppings becuase we can't have more
+     * This should be the same price as 7 toppings because we can't have more
      * than 7 toppings.
      */
     @Test
