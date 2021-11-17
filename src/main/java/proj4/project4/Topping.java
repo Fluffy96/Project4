@@ -1,29 +1,18 @@
 package proj4.project4;
 
-import java.util.Locale;
-
 public enum Topping {
     PEPPERONI, HAM, PINEAPPLE, OLIVES, CHICKEN, MUSHROOM, ONION;
 
     public static Topping toTopping(String top){
-        switch (top.toLowerCase()){
-            case "pepperoni":
-                return Topping.PEPPERONI;
-            case "ham":
-                return Topping.HAM;
-            case "pineapple":
-                return Topping.PINEAPPLE;
-            case "olives":
-                return Topping.OLIVES;
-            case "chicken":
-                return Topping.CHICKEN;
-            case "mushroom":
-                return Topping.MUSHROOM;
-            case "onion":
-                return Topping.ONION;
-            default:
-                return null;
-        }
-
+        return switch (top.toLowerCase()) {
+            case "pepperoni" -> Topping.PEPPERONI;
+            case "ham" -> Topping.HAM;
+            case "pineapple" -> Topping.PINEAPPLE;
+            case "olives" -> Topping.OLIVES;
+            case "chicken" -> Topping.CHICKEN;
+            case "mushroom" -> Topping.MUSHROOM;
+            case "onion" -> Topping.ONION;
+            default -> null;
+        };
     }
 }
