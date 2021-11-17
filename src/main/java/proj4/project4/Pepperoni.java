@@ -18,6 +18,10 @@ public class Pepperoni extends Pizza{
     public static final int MINTOPPINGS = 1;
     public static final DecimalFormat df = new DecimalFormat("#.##");
 
+    /**
+     * This constructor creates a Pepperoni Pizza Object with the given size
+     * @param pSize
+     */
     Pepperoni(String pSize){
         if(pSize.toLowerCase().equals( "small")){
             size = Size.SMALL;
@@ -32,6 +36,10 @@ public class Pepperoni extends Pizza{
         toppings.add(Topping.PEPPERONI);
     }
 
+    /**
+     * This method returns the price of the pizza
+     * @return
+     */
     @Override
     public double getprice() {
         double amount = BASEPRICE+size.getPrice();
@@ -42,26 +50,46 @@ public class Pepperoni extends Pizza{
         return pizzaPrice;
     }
 
+    /**
+     * This method sets the price of the pizza
+     * @param cost
+     */
     @Override
     public void setprice(double cost) {
         pizzaPrice = cost;
     }
 
+    /**
+     * This method adds a topping to the pizza
+     * @param top
+     */
     @Override
     public void addTopping(Topping top){
         toppings.add(top);
     }
 
+    /**
+     * This method removes a topping from the pizza
+     * @param top
+     */
     @Override
     public void removeTopping(Topping top){
         toppings.remove(top);
     }
 
+    /**
+     * This method sets the toppings for the pizza
+     * @param tops
+     */
     @Override
     public void setToppings(ArrayList<Topping> tops) {
         toppings = tops;
     }
 
+    /**
+     * This method returns an ArrayList of unused toppings
+     * @return
+     */
     @Override
     public ArrayList<Topping> unusedToppings() {
         ArrayList<Topping> out = new ArrayList<>();
@@ -74,6 +102,10 @@ public class Pepperoni extends Pizza{
         return out;
     }
 
+    /**
+     * This method returns a String[] of the toppings
+     * @return
+     */
     @Override
     public String[] getTopppings(){
         String[] topList = new String[toppings.size()];
@@ -83,6 +115,10 @@ public class Pepperoni extends Pizza{
         return topList;
     }
 
+    /**
+     * This method returns a String of the pizza
+     * @return
+     */
     @Override
     public String toString(){
         String out = "Pepperoni Pizza, ";
@@ -95,11 +131,19 @@ public class Pepperoni extends Pizza{
         return out;
     }
 
+    /**
+     * This method returns the minimum number of toppings
+     * @return
+     */
     @Override
     public int getMinTop(){
         return MINTOPPINGS;
     }
 
+    /**
+     * This method changes the size of a pizza
+     * @param s
+     */
     @Override
     public void changeSize(String s) {
         if (s.toLowerCase().equals("small")) {

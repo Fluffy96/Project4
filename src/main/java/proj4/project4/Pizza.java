@@ -28,22 +28,64 @@ public abstract class Pizza {
     public static final int NOTFOUND = -1;
     public double pizzaPrice = 0;
 
+    /**
+     * This method returns the price of the pizza object
+     * @return
+     */
     public abstract double getprice();
 
+    /**
+     * This method sets the price of the pizza
+     * @param cost
+     */
     public abstract void setprice(double cost);
 
+    /**
+     * This method adds a topping to the pizza
+     * @param top
+     */
     public abstract void addTopping(Topping top); //returns a string that says yes if it is able to return
 
+    /**
+     * This method removes a topping from the pizza
+     * @param top
+     */
     public abstract void removeTopping(Topping top);
 
+    /**
+     * This method sets the toppings for the pizza
+     * @param tops
+     */
     public abstract void setToppings(ArrayList<Topping> tops);
 
+    /**
+     * This method returns an ArrayList of unused toppings
+     * @return
+     */
     public abstract ArrayList<Topping> unusedToppings();
 
+    /**
+     * This method returns a String[] of the toppings
+     * @return
+     */
     public abstract String[] getTopppings();
 
+    /**
+     * This method returns a String of the pizza
+     * @return
+     */
+    public abstract String toString();
+
+    /**
+     * This method returns the minimum number of toppings
+     * @return
+     */
     public abstract int getMinTop();
 
+    /**
+     * This method changes the size of a pizza
+     * @param s
+     */
     public abstract void changeSize(String s);
 
 }
