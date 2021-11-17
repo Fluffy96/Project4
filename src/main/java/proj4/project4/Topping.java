@@ -1,8 +1,14 @@
 package proj4.project4;
 
+
 public enum Topping {
     PEPPERONI, HAM, PINEAPPLE, OLIVES, CHICKEN, MUSHROOM, ONION;
 
+    /**
+     * Method takes in string of the topping and returns the topping objecc of the topping
+     * @param top
+     * @return Topping
+     */
     public static Topping toTopping(String top){
         return switch (top.toLowerCase()) {
             case "pepperoni" -> Topping.PEPPERONI;

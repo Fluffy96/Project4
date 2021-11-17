@@ -24,6 +24,11 @@ public class Orders {
             return null;
         }
     }
+
+    /**
+     *
+     * @return T
+     */
     public double getPrice(){
         return price;
     }
