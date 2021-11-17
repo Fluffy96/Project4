@@ -1,3 +1,10 @@
+/**
+ * This class is an Enum that has the 3 different sizes of pizza
+
+ * @author Divyesh Nemam Baskaran, Viraj Patel
+ *
+ */
+
 package proj4.project4;
 
 public enum Size {

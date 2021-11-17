@@ -1,3 +1,10 @@
+/**
+ * This class creates pizzas that are requested by the user
+
+ * @author Divyesh Nemam Baskaran, Viraj Patel
+ *
+ */
+
 package proj4.project4;
 
 import java.util.Locale;

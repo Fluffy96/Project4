@@ -16,6 +16,10 @@ public class Hawaiian extends Pizza{
     public static final int MINTOPPINGS = 2;
     public static final DecimalFormat df = new DecimalFormat("#.##");
 
+    /**
+     * Constructor method of the Hawaiian class that creates a Hawaiian Pizza Object with an input of preferred size
+     * @param pSize
+     */
     Hawaiian(String pSize){
         if(pSize.toLowerCase().equals( "small")){
             size = Size.SMALL;
@@ -31,6 +35,10 @@ public class Hawaiian extends Pizza{
         toppings.add(Topping.HAM);
     }
 
+    /**
+     * This method returns the price of the pizza
+     * @return
+     */
     @Override
     public double getprice() {
         double amount = BASEPRICE+size.getPrice();
@@ -41,21 +49,37 @@ public class Hawaiian extends Pizza{
         return pizzaPrice;
     }
 
+    /**
+     * This method sets the price of a pizza
+     * @param cost
+     */
     @Override
     public void setprice(double cost) {
         pizzaPrice = cost;
     }
 
+    /**
+     * This method adds a topping to the pizza
+     * @param top
+     */
     @Override
     public void addTopping(Topping top){
         toppings.add(top);
     }
 
+    /**
+     * This method removes a topping from the pizza
+     * @param top
+     */
     @Override
     public void removeTopping(Topping top){
         toppings.remove(top);
     }
 
+    /**
+     * This method returns all the unused toppings
+     * @return
+     */
     @Override
     public ArrayList<Topping> unusedToppings() {
         ArrayList<Topping> out = new ArrayList<>();
@@ -68,6 +92,10 @@ public class Hawaiian extends Pizza{
         return out;
     }
 
+    /**
+     * This method returns all the toppings
+     * @return
+     */
     @Override
     public String[] getTopppings(){
         String[] topList = new String[toppings.size()];
@@ -77,11 +105,19 @@ public class Hawaiian extends Pizza{
         return topList;
     }
 
+    /**
+     * This method sets the toppings of the pizza
+     * @param tops
+     */
     @Override
     public void setToppings(ArrayList <Topping> tops) {
         toppings = tops;
     }
 
+    /**
+     * This method returns the String value of the Hawaiian Object
+     * @return
+     */
     @Override
     public String toString(){
         String out = "Hawaiian Pizza, ";
@@ -94,11 +130,19 @@ public class Hawaiian extends Pizza{
         return out;
     }
 
+    /**
+     * This method returns the minimum number of toppings
+     * @return
+     */
     @Override
     public int getMinTop(){
         return MINTOPPINGS;
     }
 
+    /**
+     * This changes the size of the pizza
+     * @param s
+     */
     @Override
     public void changeSize(String s) {
         if (s.toLowerCase().equals("small")) {

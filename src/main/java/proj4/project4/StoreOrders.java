@@ -1,3 +1,10 @@
+/**
+ * This class manages all of the orders from the store
+
+ * @author Divyesh Nemam Baskaran, Viraj Patel
+ *
+ */
+
 package proj4.project4;
 
 import javafx.beans.Observable;
