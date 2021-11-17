@@ -1,3 +1,10 @@
+/**
+ * This class is the subclass of Pizza for a Deluxe Pizza
+
+ * @author Divyesh Nemam Baskaran, Viraj Patel
+ *
+ */
+
 package proj4.project4;
 
 import java.text.DecimalFormat;
@@ -10,6 +17,10 @@ public class Deluxe extends Pizza{
     public static final int MINTOPPINGS = 5;
     public static final DecimalFormat df = new DecimalFormat("#.##");
 
+    /**
+     * This is the constructor of Deluxe that creates a Deluxe type Pizza.
+     * @param pSize
+     */
     Deluxe(String pSize){
         if(pSize.toLowerCase().equals( "small")){
             size = Size.SMALL;
@@ -29,6 +40,10 @@ public class Deluxe extends Pizza{
 
     }
 
+    /**
+     * This method returns the price of the pizza.
+     * @return pizzaPrice
+     */
     @Override
     public double getprice() {
         double amount = BASEPRICE+size.getPrice();
@@ -39,16 +54,28 @@ public class Deluxe extends Pizza{
         return pizzaPrice;
     }
 
+    /**
+     * This method allows the user to set the price of the pizza.
+     * @param cost
+     */
     @Override
     public void setprice(double cost) {
         pizzaPrice = cost;
     }
 
+    /**
+     * This method allows user to add a topping to the Deluxe Object
+     * @param top
+     */
     @Override
     public void addTopping(Topping top){
         toppings.add(top);
     }
 
+    /**
+     * This method allows user to remove a topping from the Deluxe Object
+     * @param top
+     */
     @Override
     public void removeTopping(Topping top){
         toppings.remove(top);
