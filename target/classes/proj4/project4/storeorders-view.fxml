@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proj4.project4.StoreOrdersController">
+   <children>
+      <Label layoutX="266.0" layoutY="40.0" text="Store Orders" />
+      <Label layoutX="43.0" layoutY="84.0" text="Customer Phone Number: " />
+      <MenuButton fx:id="storeOrderPhoneNumber" layoutX="194.0" layoutY="80.0" mnemonicParsing="false" text="Phone Numbers" />
+      <Label layoutX="320.0" layoutY="84.0" text="Order Total $" />
+      <TextField fx:id="StoreOrderTotal" layoutX="403.0" layoutY="80.0" />
+      <ListView fx:id="storeOrderListView" layoutX="36.0" layoutY="119.0" prefHeight="215.0" prefWidth="518.0" />
+      <Button fx:id="cancelStoreOrder" layoutX="194.0" layoutY="350.0" mnemonicParsing="false" onAction="#onCancelOrder" text="Cancel Order" />
+      <Button fx:id="exportStoreOrders" layoutX="320.0" layoutY="350.0" mnemonicParsing="false" onAction="#onExportStoreOrders" text="Export Store Orders" />
+   </children>
+</AnchorPane>

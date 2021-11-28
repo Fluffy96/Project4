@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="550.0" prefWidth="525.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proj4.project4.DeluxeController">
+   <children>
+      <ImageView fx:id="image" fitHeight="150.0" fitWidth="200.0" layoutX="36.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@delPizza.jpg" />
+         </image>
+      </ImageView>
+      <MenuButton fx:id="isSizeSelect" layoutX="334.0" layoutY="89.0" mnemonicParsing="false" text="Pizza Size">
+        <items>
+          <MenuItem mnemonicParsing="false" onAction="#setSmall" text="Small" />
+          <MenuItem mnemonicParsing="false" onAction="#setMedium" text="Medium" />
+            <MenuItem mnemonicParsing="false" onAction="#setLarge" text="Large" />
+        </items>
+      </MenuButton>
+      <Label layoutX="48.0" layoutY="183.0" text="Additional Toppings" />
+      <ListView fx:id="deluxeAdditional" layoutX="36.0" layoutY="218.0" prefHeight="200.0" prefWidth="150.0" />
+      <ListView fx:id="deluxeToppings" layoutX="331.0" layoutY="218.0" prefHeight="200.0" prefWidth="150.0" />
+      <Button fx:id="addTopping" layoutX="224.0" layoutY="276.0" mnemonicParsing="false" onAction="#onAddTopping" text="Add &gt;&gt;&gt;" />
+      <Button fx:id="removeTopping" layoutX="214.0" layoutY="337.0" mnemonicParsing="false" onAction="#onRemoveTopping" text="&lt;&lt;&lt; Remove" />
+      <Label layoutX="122.0" layoutY="466.0" text="Price $" />
+      <TextField fx:id="deluxePrice" layoutX="169.0" layoutY="462.0" />
+      <Button fx:id="deluxeAddToOrder" layoutX="331.0" layoutY="462.0" mnemonicParsing="false" onAction="#onAdd" text="Add To Order" />
+      <Label layoutX="348.0" layoutY="183.0" text="Selected Toppings" />
+      <Label layoutX="342.0" layoutY="45.0" text="Deluxe Pizza" />
+   </children>
+</AnchorPane>

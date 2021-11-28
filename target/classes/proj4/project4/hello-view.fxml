@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proj4.project4.HelloController">
+   <children>
+      <TextField fx:id="cNum" layoutX="428.0" layoutY="156.0" />
+      <Label layoutX="273.0" layoutY="150.0" prefHeight="36.0" prefWidth="167.0" text="Customer Phone Number: " />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="39.0" layoutY="101.0" onMouseClicked="#onDeluxeClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@delPizza.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="39.0" layoutY="274.0" onMouseClicked="#onHawaiianClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@hawaiianhampizza.jpg" />
+         </image></ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="39.0" layoutY="462.0" onMouseClicked="#onPepperoniClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@GettyImages-1133727757.jpg" />
+         </image></ImageView>
+      <Label layoutX="89.0" layoutY="246.0" text="Order Deluxe Pizza" />
+      <Label layoutX="83.0" layoutY="435.0" text="Order Hawaiian Pizza" />
+      <Label layoutX="80.0" layoutY="610.0" text="Order Pepperoni Pizza" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="365.0" layoutY="263.0" onMouseClicked="#onCurrentOrderClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@istockphoto-1206806317-170667a.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="403.0" layoutY="427.0" text="Current Order" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="365.0" layoutY="454.0" onMouseClicked="#onStoreOrderClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@1842084-200.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="406.0" layoutY="610.0" text="Store Orders" />
+      <Label layoutX="224.0" layoutY="36.0" text="RU PIZZERIA">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
