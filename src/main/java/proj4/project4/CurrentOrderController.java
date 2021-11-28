@@ -35,12 +35,12 @@ public class CurrentOrderController {
 
     /**
      * This method runs when the Current Order View is opened.
-     * @param order
+     * @param orde
      * @param stOrd
      */
-    public void setCustomerAndNumber(Orders order, StoreOrders stOrd){
+    public void setCustomerAndNumber(Orders orde, StoreOrders stOrd){
         storeOrders = stOrd;
-        order = order;
+        order = orde;
         currentOrderPhoneNumber.setEditable(false);
         currentOrderPhoneNumber.setText(order.getPhoneNum());
         subtotal.setEditable(false);
