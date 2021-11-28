@@ -1,3 +1,10 @@
+/**
+ * This class manages all of the orders from the store
+
+ * @author Divyesh Nemam Baskaran, Viraj Patel
+ *
+ */
+
 package proj4.project4;
 /**
  * This class is the UI that contains the run function to interract with album collections

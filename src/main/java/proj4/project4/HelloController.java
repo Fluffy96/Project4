@@ -30,7 +30,9 @@ public class HelloController {
     private StoreOrders storeOrder = new StoreOrders();
     private String phoneNumber = "";
 
-
+    /**
+     * This is the on click action for a Deluxe Pizza request
+     */
     @FXML
     protected void onDeluxeClick() {
         String result = cNum.getText();
@@ -77,6 +79,9 @@ public class HelloController {
         }
     }
 
+    /**
+     * This is the on click action for a Hawaiian Pizza request
+     */
     @FXML
     protected void onHawaiianClick() {
         String result = cNum.getText();
@@ -127,6 +132,9 @@ public class HelloController {
 
     }
 
+    /**
+     * This is the on click action for a Pepperoni Pizza request
+     */
     @FXML
     protected void onPepperoniClick() {
         String result = cNum.getText();
@@ -178,6 +186,9 @@ public class HelloController {
         }
     }
 
+    /**
+     * This is the on click action for a current order request
+     */
     @FXML
     protected void onCurrentOrderClick() {
         String result = cNum.getText();
@@ -225,6 +236,9 @@ public class HelloController {
 
     }
 
+    /**
+     * This is the on click action for a store orders request
+     */
     @FXML
     protected void onStoreOrderClick() {
         Parent root;
